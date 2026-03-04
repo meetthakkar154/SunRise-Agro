@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="90" fill="#2e7d32"/>
+  <text x="100" y="75" text-anchor="middle" fill="#fff" font-family="Poppins,sans-serif" font-size="28" font-weight="700">SAP</text>
+  <text x="100" y="105" text-anchor="middle" fill="#ffe082" font-family="Poppins,sans-serif" font-size="11" font-weight="500">Sun Agro Process</text>
+  <ellipse cx="100" cy="140" rx="12" ry="20" fill="#e65100" opacity=".8"/>
+  <ellipse cx="100" cy="140" rx="8" ry="15" fill="#ff9800" opacity=".75"/>
+</svg>

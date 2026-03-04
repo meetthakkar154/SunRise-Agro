@@ -1,0 +1,4 @@
+# SAP Project
+node_modules/
+dist/
+.env

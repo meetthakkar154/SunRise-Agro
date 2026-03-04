@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "process": "Process",
+    "gallery": "Gallery",
+    "services": "Services",
+    "quality": "Quality",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "From Farm to Quality – Trusted Agro Processing",
+    "viewProducts": "View Products",
+    "contactUs": "Contact Us"
+  },
+  "about": {
+    "title": "About Us",
+    "intro": "Sun Agro Process is a trusted agro-processing company specializing in rice milling and agricultural product processing. The company focuses on delivering high-quality grains while maintaining modern processing standards.",
+    "mission": "Mission",
+    "missionText": "To deliver high-quality agricultural products through advanced processing techniques.",
+    "vision": "Vision",
+    "visionText": "To become a trusted agro-processing brand in India.",
+    "values": "Our Values",
+    "valuesText": "Integrity, quality, innovation, and commitment to the agricultural community."
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Premium Quality Agricultural Products",
+    "quality": "Grade",
+    "packaging": "Packaging"
+  },
+  "process": {
+    "title": "Our Processing",
+    "subtitle": "State-of-the-art Milling Process",
+    "steps": [
+      { "name": "Grain Cleaning", "desc": "Thorough cleaning to remove impurities and foreign materials." },
+      { "name": "Husking", "desc": "Removal of husks using advanced rubber-roll huskers." },
+      { "name": "Milling", "desc": "Precision milling to achieve the desired grain finish." },
+      { "name": "Polishing", "desc": "Gentle polishing for a premium look and texture." },
+      { "name": "Sorting", "desc": "Optical sorting to ensure uniform quality grains." },
+      { "name": "Packaging", "desc": "Hygienic and airtight packaging for maximum freshness." }
+    ]
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A Glimpse Into Our Operations"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive Agro-Processing Solutions",
+    "list": [
+      { "name": "Rice Milling", "desc": "Advanced milling machinery for consistent, premium rice output." },
+      { "name": "Grain Processing", "desc": "Multi-grain processing capabilities with modern equipment." },
+      { "name": "Packaging", "desc": "Hygienic, branded packaging in various sizes." },
+      { "name": "Bulk Supply", "desc": "Reliable bulk supply for distributors and institutions." },
+      { "name": "Wholesale Distribution", "desc": "Pan-India wholesale distribution network for all products." }
+    ]
+  },
+  "quality": {
+    "title": "Quality Assurance",
+    "subtitle": "We Guarantee Quality at Every Step",
+    "items": [
+      "Modern Machinery",
+      "Hygienic Processing",
+      "Quality Inspection",
+      "Packaging Standards"
+    ]
+  },
+  "partners": {
+    "title": "Farmers & Partners",
+    "subtitle": "Growing Together",
+    "text": "We work directly with farmers to ensure fair pricing and quality sourcing. Join our network of trusted partners.",
+    "becomePartner": "Become a Partner",
+    "formName": "Name",
+    "formPhone": "Phone",
+    "formEmail": "Email",
+    "formMessage": "Message",
+    "formSubmit": "Submit"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get In Touch",
+    "address": "Sun Agro Process, Industrial Area, Gujarat, India",
+    "phone": "+91 98765 43210",
+    "email": "info@sunagroprocess.com",
+    "formName": "Name",
+    "formPhone": "Phone",
+    "formEmail": "Email",
+    "formMessage": "Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!"
+  },
+  "footer": {
+    "rights": "© 2026 Sun Agro Process. All rights reserved.",
+    "quickLinks": "Quick Links",
+    "ourProducts": "Our Products",
+    "contactInfo": "Contact Info",
+    "followUs": "Follow Us"
+  },
+  "catalog": "Download Catalog",
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "counters": {
+    "yearsExp": "Years Experience",
+    "tonnesProcessed": "Tonnes Processed",
+    "happyClients": "Happy Clients",
+    "farmers": "Partner Farmers"
+  }
+}
