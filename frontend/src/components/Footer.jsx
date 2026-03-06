@@ -61,9 +61,9 @@ export default function Footer() {
               <li>{t('contact.hours')}</li>
               <li><strong>{t('contact.gstLabel')}:</strong> {t('contact.gst')}</li>
             </ul>
-            <div className="footer-social" style={{ marginTop: '1.2rem' }}>
+            {/* <div className="footer-social" style={{ marginTop: '1.2rem' }}>
               <a href="https://wa.me/919898051994" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
-            </div>
+            </div> */}
             {/* <h4 style={{ marginTop: '1.2rem' }}>{t('footer.followUs')}</h4>
             <div className="footer-social">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
