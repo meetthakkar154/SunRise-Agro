@@ -163,8 +163,13 @@
     "formName": "Name",
     "formPhone": "Phone",
     "formEmail": "Email",
+    "formCity": "City",
+    "formPincode": "Pincode (6 digits)",
+    "formProducts": "Select Products",
+    "productsSelected": "product(s) selected",
     "formMessage": "Message",
-    "formSubmit": "Submit"
+    "formSubmit": "Submit",
+    "submitted": "Submitted!"
   },
   "contact": {
     "title": "Contact Us",

@@ -46,7 +46,11 @@ const categories = ['All', 'Rice', 'Poniya', 'Vatla', 'Wheat', 'White Pearl'];
 
 function ProductCard({ p, i, inView }) {
   const { t } = useTranslation();
-  const scrollTo = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  const handleQuote = () => {
+    const productName = t(`products.items.${p.id}.name`, { defaultValue: p.name });
+    window.dispatchEvent(new CustomEvent('requestQuote', { detail: productName }));
+    document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' });
+  };
   const name = t(`products.items.${p.id}.name`, { defaultValue: p.name });
   const desc = t(`products.items.${p.id}.desc`, { defaultValue: p.description });
   const features = t(`products.items.${p.id}.features`, { returnObjects: true, defaultValue: p.features });
@@ -97,7 +101,7 @@ function ProductCard({ p, i, inView }) {
           <span className="pc-size">{t('products.size30')}</span>
           <span className="pc-size">{t('products.size50')}</span>
         </div>
-        <button className="pc-quote-btn" onClick={scrollTo}>
+        <button className="pc-quote-btn" onClick={handleQuote}>
           {t('products.requestQuote')} <FaArrowRight />
         </button>
       </div>

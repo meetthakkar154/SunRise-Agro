@@ -1,19 +1,53 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaHandshake } from 'react-icons/fa';
+import { FaHandshake, FaChevronDown } from 'react-icons/fa';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+const productList = [
+  'Wadakolam Rice', 'Wadakolam Old Rice', 'Kali Muchh Rice', 'Gujarat-13 Rice',
+  'Gujarat-17 Rice', 'Krishna Kamod Rice', 'Lachkari Rice', 'Kasturi Rice',
+  'Wadakolam Poniya', 'Kali Muchh Poniya', 'Gujarat-13 Poniya', 'Gujarat-17 Poniya',
+  'Krishna Kamod Poniya', 'Lachkari Poniya',
+  'Wadakolam Vatla', 'Kali Muchh Vatla', 'Gujarat-13 Vatla', 'Gujarat-17 Vatla',
+  'Krishna Kamod Vatla', 'Lachkari Vatla',
+  'MP Sharbati Wheat', 'Bhaliya Wheat', 'Green Gold Bajri',
+];
 
 export default function Partners() {
   const { t } = useTranslation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: .2 });
-  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
   const [sent, setSent] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  /* Listen for product quote requests from ProductCard */
+  useEffect(() => {
+    const handler = (e) => {
+      const productName = e.detail;
+      setShowForm(true);
+      setForm((prev) => ({
+        ...prev,
+        products: prev.products.includes(productName) ? prev.products : [...prev.products, productName],
+      }));
+    };
+    window.addEventListener('requestQuote', handler);
+    return () => window.removeEventListener('requestQuote', handler);
+  }, []);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const toggleProduct = (name) => {
+    setForm((prev) => ({
+      ...prev,
+      products: prev.products.includes(name)
+        ? prev.products.filter((p) => p !== name)
+        : [...prev.products, name],
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,11 +55,11 @@ export default function Partners() {
       await fetch(`${API}/partners`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, products: form.products.join(', ') }),
       });
     } catch { /* handled */ }
     setSent(true);
-    setForm({ name: '', phone: '', email: '', message: '' });
+    setForm({ name: '', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
     setTimeout(() => setSent(false), 4000);
   };
 
@@ -59,9 +93,51 @@ export default function Partners() {
                 <input name="name" placeholder={t('partners.formName')} value={form.name} onChange={handleChange} required />
                 <input name="phone" placeholder={t('partners.formPhone')} value={form.phone} onChange={handleChange} required />
                 <input name="email" type="email" placeholder={t('partners.formEmail')} value={form.email} onChange={handleChange} required />
+
+                {/* City & Pincode row */}
+                <div className="form-row">
+                  <input name="city" placeholder={t('partners.formCity')} value={form.city} onChange={handleChange} required />
+                  <input name="pincode" placeholder={t('partners.formPincode')} value={form.pincode} onChange={handleChange} required pattern="[0-9]{6}" maxLength={6} />
+                </div>
+
+                {/* Multi-select Products */}
+                <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`}>
+                  <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                    <span>
+                      {form.products.length > 0
+                        ? `${form.products.length} ${t('partners.productsSelected')}`
+                        : t('partners.formProducts')}
+                    </span>
+                    <FaChevronDown className="pms-chevron" />
+                  </button>
+                  {dropdownOpen && (
+                    <div className="product-multiselect-menu">
+                      {productList.map((name) => (
+                        <label key={name} className="pms-option">
+                          <input
+                            type="checkbox"
+                            checked={form.products.includes(name)}
+                            onChange={() => toggleProduct(name)}
+                          />
+                          <span>{name}</span>
+                        </label>
+                      ))}
+                    </div>
+                  )}
+                  {form.products.length > 0 && (
+                    <div className="pms-selected-tags">
+                      {form.products.map((name) => (
+                        <span key={name} className="pms-tag" onClick={() => toggleProduct(name)}>
+                          {name} ×
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 <textarea name="message" placeholder={t('partners.formMessage')} value={form.message} onChange={handleChange} required />
                 <button type="submit" className="btn btn-primary">{t('partners.formSubmit')}</button>
-                {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ Submitted!</p>}
+                {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ {t('partners.submitted') || 'Submitted!'}</p>}
               </form>
             )}
           </motion.div>

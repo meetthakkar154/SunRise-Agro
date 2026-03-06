@@ -163,8 +163,13 @@
     "formName": "નામ",
     "formPhone": "ફોન",
     "formEmail": "ઈમેલ",
+    "formCity": "શહેર",
+    "formPincode": "પિનકોડ (6 અંક)",
+    "formProducts": "ઉત્પાદનો પસંદ કરો",
+    "productsSelected": "ઉત્પાદન(ઓ) પસંદ",
     "formMessage": "સંદેશ",
-    "formSubmit": "સબમિટ કરો"
+    "formSubmit": "સબમિટ કરો",
+    "submitted": "સબમિટ થયું!"
   },
   "contact": {
     "title": "સંપર્ક કરો",

@@ -163,8 +163,13 @@
     "formName": "नाम",
     "formPhone": "फोन",
     "formEmail": "ईमेल",
+    "formCity": "शहर",
+    "formPincode": "पिनकोड (6 अंक)",
+    "formProducts": "उत्पाद चुनें",
+    "productsSelected": "उत्पाद चयनित",
     "formMessage": "संदेश",
-    "formSubmit": "सबमिट करें"
+    "formSubmit": "सबमिट करें",
+    "submitted": "सबमिट हो गया!"
   },
   "contact": {
     "title": "संपर्क करें",
