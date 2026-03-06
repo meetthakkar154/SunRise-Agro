@@ -20,7 +20,7 @@ function initMailer() {
 }
 
 async function sendNotification({ type, name, phone, email, message }) {
-  if (!transporter) return;
+  if (!transporter) throw new Error('Mailer not initialised');
 
   const notifyEmail = (process.env.NOTIFY_EMAIL || process.env.SMTP_EMAIL || '').trim();
 
@@ -48,16 +48,12 @@ async function sendNotification({ type, name, phone, email, message }) {
     </div>
   `;
 
-  try {
-    await transporter.sendMail({
-      from: `"SAP Website" <${process.env.SMTP_EMAIL}>`,
-      to: notifyEmail,
-      subject,
-      html,
-    });
-  } catch (err) {
-    console.error('Email send error:', err.message);
-  }
+  await transporter.sendMail({
+    from: `"SAP Website" <${(process.env.SMTP_EMAIL || '').trim()}>`,
+    to: notifyEmail,
+    subject,
+    html,
+  });
 }
 
 module.exports = { initMailer, sendNotification };
