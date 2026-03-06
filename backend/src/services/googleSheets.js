@@ -33,7 +33,7 @@ async function appendToSheet(sheetName, row) {
   try {
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: `${sheetName}!A:F`,
+      range: `${sheetName}!A:Z`,
       valueInputOption: 'USER_ENTERED',
       requestBody: { values: [row] },
     });
