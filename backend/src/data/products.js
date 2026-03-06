@@ -1,4 +1,5 @@
 const products = [
+  
   // Wadakolam Rice Series
   { id: 'wadakolam-rice', name: 'Wadakolam Rice', category: 'Rice', description: 'Premium Wadakolam rice known for its soft texture and excellent water absorption. Ideal for everyday meals.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Soft Texture', 'High Absorption', 'Daily Use'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
   { id: 'wadakolam-old', name: 'Wadakolam Old', category: 'Rice', description: 'Aged Wadakolam rice with enhanced flavor and better cooking expansion. Premium aged quality.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Aged Quality', 'Better Expansion', 'Rich Flavor'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },

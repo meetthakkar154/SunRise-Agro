@@ -1503,3 +1503,156 @@ button { cursor: pointer; font-family: inherit; }
 .fin-growth-pill svg { font-size: .65rem; }
 .fin-growth-pill--hot { background: rgba(46,125,50,.15); color: #2e7d32; }
 .fin-growth-pill--base { background: var(--bg-alt); color: var(--text-muted); }
+
+/* ===== COMPREHENSIVE RESPONSIVE ===== */
+
+/* --- Tablet (max 900px) --- */
+@media (max-width: 900px) {
+  .section { padding: 3.5rem 0; }
+  .container { padding: 0 1rem; }
+  .hero-buttons { flex-direction: column; gap: .75rem; }
+  .hero-btn-glow, .hero-btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+  .counters-grid { gap: 1.5rem; }
+  .counter-item h2 { font-size: 2rem; }
+  .footer-grid { gap: 1.5rem; }
+  .quality-certs-grid { gap: 1rem; }
+  .quality-cert-card { padding: .75rem 1rem; font-size: .88rem; }
+}
+
+/* --- Small tablet / large phone (max 768px) --- */
+@media (max-width: 768px) {
+  .section { padding: 3rem 0; }
+  .section-title { font-size: 1.75rem; }
+  .section-subtitle { font-size: .95rem; margin-bottom: 2rem; }
+  .hero { min-height: 90vh; }
+  .hero-content { padding: 0 1rem; }
+  .hero-buttons { gap: .6rem; }
+  .about-story { padding: 1.5rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item { height: 180px; }
+  .map-wrapper iframe { height: 280px; }
+  .form input, .form textarea { font-size: .95rem; }
+  .fin-chart { padding: 1.5rem 1rem 1rem; }
+  .fin-table-wrap { padding: 1rem; }
+  .fin-table thead th { padding: .65rem .8rem; font-size: .78rem; }
+  .fin-table tbody td { padding: .65rem .8rem; font-size: .85rem; }
+  .products-filter { gap: .4rem; }
+  .products-filter-btn { padding: .4rem .9rem; font-size: .82rem; }
+  .lightbox img { max-width: 95vw; max-height: 80vh; }
+  .lightbox-close { top: 1rem; right: 1rem; font-size: 1.6rem; }
+  .service-modal { max-width: 95vw; margin: 1rem; }
+}
+
+/* --- Phone (max 540px) --- */
+@media (max-width: 540px) {
+  .section { padding: 2.5rem 0; }
+  .container { padding: 0 .75rem; }
+  .section-title { font-size: 1.5rem; }
+  .section-subtitle { font-size: .88rem; margin-bottom: 1.5rem; }
+  .section-label { font-size: .75rem; }
+
+  /* Hero */
+  .hero { min-height: 85vh; }
+  .hero h1 { font-size: 1.5rem; line-height: 1.3; }
+  .hero-subtitle { font-size: .9rem; }
+  .hero-logo { height: 50px; }
+  .hero-badges { flex-wrap: wrap; justify-content: center; }
+  .hero-badge { font-size: .68rem; padding: .3rem .6rem; }
+
+  /* About */
+  .about-text p { font-size: .95rem; }
+  .about-images { gap: .5rem; }
+  .about-stat { padding: 1rem; gap: .75rem; }
+  .about-stat-icon { width: 40px; height: 40px; font-size: 1rem; }
+  .about-stat strong { font-size: .9rem; }
+  .about-card { padding: 1.25rem; }
+  .about-values-grid { grid-template-columns: 1fr; }
+  .about-story { padding: 1.25rem; }
+
+  /* Founders */
+  .fdr-card { padding: 1.25rem; }
+  .fdr-avatar { width: 48px; height: 48px; font-size: 1.1rem; }
+  .fdr-name { font-size: 1rem; }
+  .fdr-desc { font-size: .85rem; }
+  .fdr-exp-pill { padding: .35rem .65rem; font-size: .7rem; }
+
+  /* Products */
+  .pc-body { padding: 1rem 1.2rem 1.2rem; }
+  .pc-name { font-size: 1.05rem; }
+  .pc-desc { font-size: .85rem; }
+  .pc-tag { font-size: .72rem; padding: .2rem .55rem; }
+  .pc-sizes { gap: .4rem; }
+  .pc-size { padding: .4rem; font-size: .8rem; }
+  .pc-quote-btn { padding: .7rem; font-size: .9rem; }
+  .pc-label-brand { font-size: .8rem; letter-spacing: 2px; }
+  .pc-label-premium { font-size: .68rem; }
+  .pc-label-name { font-size: .78rem !important; letter-spacing: 1px; }
+  .pc-label-tagline { font-size: .62rem; }
+  .products-toggle-btn { padding: .7rem 1.8rem; font-size: .9rem; }
+
+  /* Process */
+  .ptl-card { padding: 1rem; }
+  .ptl-name { font-size: 1rem; }
+  .ptl-desc { font-size: .85rem; }
+  .ptl-num { font-size: .7rem; }
+
+  /* Gallery */
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .gallery-item { height: 150px; }
+
+  /* Services */
+  .service-card-body { padding: 1.25rem; }
+  .service-card h3 { font-size: 1rem; }
+
+  /* Quality */
+  .quality-certs-grid { flex-direction: column; align-items: center; }
+  .quality-cert-card { width: 100%; max-width: 300px; justify-content: center; }
+
+  /* Counters */
+  .counters { padding: 2.5rem 0; }
+  .counters-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .counter-item h2 { font-size: 1.75rem; }
+  .counter-item p { font-size: .82rem; }
+
+  /* Financial */
+  .fin-summary-card { padding: 1rem; gap: .75rem; }
+  .fin-summary-icon { width: 44px; height: 44px; font-size: 1.1rem; }
+  .fin-summary-value { font-size: 1.15rem; }
+  .fin-chart { padding: 1rem .75rem .75rem; }
+  .fin-table-wrap { padding: .75rem; }
+
+  /* Partners */
+  .partner-text p { font-size: .95rem; }
+
+  /* Contact */
+  .contact-info-item { gap: .75rem; margin-bottom: 1rem; }
+  .contact-icon { font-size: 1.2rem; }
+
+  /* Footer */
+  .footer { padding: 2rem 0 1rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer h4 { font-size: .95rem; }
+  .footer-bottom { font-size: .78rem; }
+
+  /* Testimonials & FAQ */
+  .testimonial-card { padding: 1.25rem; }
+  .testimonial-comment { font-size: .88rem; }
+  .faq-list { max-width: 100%; }
+}
+
+/* --- Small phone (max 380px) --- */
+@media (max-width: 380px) {
+  .hero h1 { font-size: 1.3rem; }
+  .hero-subtitle { font-size: .82rem; }
+  .hero-badge { font-size: .62rem; }
+  .section-title { font-size: 1.3rem; }
+  .nav-logo img { height: 50px; }
+  .nav-logo span { font-size: 1.1rem; }
+  .counter-item h2 { font-size: 1.5rem; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item { height: 200px; }
+  .pc-img-wrap { height: 200px; }
+  .fin-bar-label { font-size: .62rem; }
+  .fin-chart-area { height: 200px; }
+  .about-stat { flex-direction: column; text-align: center; }
+}
