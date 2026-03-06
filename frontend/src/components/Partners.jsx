@@ -21,6 +21,7 @@ export default function Partners() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: .2 });
   const [form, setForm] = useState({ name: '', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -54,6 +55,7 @@ export default function Partners() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       const res = await fetch(`${API}/partners`, {
         method: 'POST',
@@ -70,6 +72,8 @@ export default function Partners() {
       setTimeout(() => setSent(false), 4000);
     } catch {
       setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -146,7 +150,11 @@ export default function Partners() {
                 </div>
 
                 <textarea name="message" placeholder={t('partners.formMessage')} value={form.message} onChange={handleChange} required />
-                <button type="submit" className="btn btn-primary">{t('partners.formSubmit')}</button>
+                <div style={{ textAlign: 'center' }}>
+                  <button type="submit" className="btn btn-primary" disabled={loading}>
+                    {loading ? <span className="spinner" /> : t('partners.formSubmit')}
+                  </button>
+                </div>
                 {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ {t('partners.submitted') || 'Submitted!'}</p>}
                 {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
               </form>

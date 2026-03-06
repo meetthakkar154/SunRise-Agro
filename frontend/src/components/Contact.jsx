@@ -11,6 +11,7 @@ export default function Contact() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: .2 });
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -19,6 +20,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       const res = await fetch(`${API}/contact`, {
         method: 'POST',
@@ -35,6 +37,8 @@ export default function Contact() {
       setTimeout(() => setSent(false), 4000);
     } catch {
       setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -93,7 +97,11 @@ export default function Contact() {
               <input name="phone" placeholder={t('contact.formPhone')} value={form.phone} onChange={handleChange} required />
               <input name="email" type="email" placeholder={t('contact.formEmail')} value={form.email} onChange={handleChange} required />
               <textarea name="message" placeholder={t('contact.formMessage')} value={form.message} onChange={handleChange} required />
-              <button type="submit" className="btn btn-primary">{t('contact.send')}</button>
+              <div style={{ textAlign: 'center' }}>
+                <button type="submit" className="btn btn-primary" disabled={loading}>
+                  {loading ? <span className="spinner" /> : t('contact.send')}
+                </button>
+              </div>
               {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>{t('contact.success')}</p>}
               {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
             </form>
