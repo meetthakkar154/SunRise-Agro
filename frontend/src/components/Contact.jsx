@@ -14,18 +14,28 @@ export default function Contact() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
+  const [error, setError] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
-      await fetch(`${API}/contact`, {
+      const res = await fetch(`${API}/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-    } catch { /* handled */ }
-    setSent(true);
-    setForm({ name: '', phone: '', email: '', message: '' });
-    setTimeout(() => setSent(false), 4000);
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        setError(data?.errors?.[0]?.msg || 'Something went wrong');
+        return;
+      }
+      setSent(true);
+      setForm({ name: '', phone: '', email: '', message: '' });
+      setTimeout(() => setSent(false), 4000);
+    } catch {
+      setError('Network error. Please try again.');
+    }
   };
 
   return (
@@ -85,6 +95,7 @@ export default function Contact() {
               <textarea name="message" placeholder={t('contact.formMessage')} value={form.message} onChange={handleChange} required />
               <button type="submit" className="btn btn-primary">{t('contact.send')}</button>
               {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>{t('contact.success')}</p>}
+              {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
             </form>
           </motion.div>
         </div>

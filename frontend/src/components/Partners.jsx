@@ -49,18 +49,28 @@ export default function Partners() {
     }));
   };
 
+  const [error, setError] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
-      await fetch(`${API}/partners`, {
+      const res = await fetch(`${API}/partners`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, products: form.products.join(', ') }),
       });
-    } catch { /* handled */ }
-    setSent(true);
-    setForm({ name: '', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
-    setTimeout(() => setSent(false), 4000);
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        setError(data?.errors?.[0]?.msg || 'Something went wrong');
+        return;
+      }
+      setSent(true);
+      setForm({ name: '', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
+      setTimeout(() => setSent(false), 4000);
+    } catch {
+      setError('Network error. Please try again.');
+    }
   };
 
   return (
@@ -138,6 +148,7 @@ export default function Partners() {
                 <textarea name="message" placeholder={t('partners.formMessage')} value={form.message} onChange={handleChange} required />
                 <button type="submit" className="btn btn-primary">{t('partners.formSubmit')}</button>
                 {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ {t('partners.submitted') || 'Submitted!'}</p>}
+                {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
               </form>
             )}
           </motion.div>
