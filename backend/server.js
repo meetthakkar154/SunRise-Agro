@@ -44,6 +44,10 @@ app.use((err, _req, res, _next) => {
 initGoogleSheets();
 initMailer();
 
-app.listen(port, () => {
-  console.log(`SAP backend running on port ${port}`);
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`SAP backend running on port ${port}`);
+  });
+}
+
+module.exports = app;
