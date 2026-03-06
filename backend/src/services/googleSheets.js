@@ -27,10 +27,11 @@ function initGoogleSheets() {
 
 const createdTabs = new Set();
 
+const headersWritten = new Set();
+
 async function ensureTab(spreadsheetId, sheetName) {
   if (createdTabs.has(sheetName)) return;
   try {
-    await sheets.spreadsheets.get({ spreadsheetId });
     const meta = await sheets.spreadsheets.get({ spreadsheetId, fields: 'sheets.properties.title' });
     const exists = meta.data.sheets.some(s => s.properties.title === sheetName);
     if (!exists) {
@@ -45,13 +46,35 @@ async function ensureTab(spreadsheetId, sheetName) {
   }
 }
 
-async function appendToSheet(sheetName, row) {
+async function ensureHeaders(spreadsheetId, sheetName, headers) {
+  if (!headers || headersWritten.has(sheetName)) return;
+  try {
+    const existing = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: `'${sheetName}'!A1:Z1`,
+    });
+    if (!existing.data.values || existing.data.values.length === 0) {
+      await sheets.spreadsheets.values.update({
+        spreadsheetId,
+        range: `'${sheetName}'!A1`,
+        valueInputOption: 'USER_ENTERED',
+        requestBody: { values: [headers] },
+      });
+    }
+    headersWritten.add(sheetName);
+  } catch (e) {
+    console.error('ensureHeaders error:', e.message);
+  }
+}
+
+async function appendToSheet(sheetName, row, headers) {
   if (!authorised || !sheets) throw new Error('Google Sheets not initialised');
 
   const spreadsheetId = (process.env.GOOGLE_SHEET_ID || '').trim();
   if (!spreadsheetId) throw new Error('GOOGLE_SHEET_ID not set');
 
   await ensureTab(spreadsheetId, sheetName);
+  await ensureHeaders(spreadsheetId, sheetName, headers);
 
   await sheets.spreadsheets.values.append({
     spreadsheetId,

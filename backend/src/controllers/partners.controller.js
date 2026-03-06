@@ -7,7 +7,8 @@ async function submitPartnerLead(req, res, next) {
     const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
     // Save to Google Sheet
-    await appendToSheet('Partner Requests', [timestamp, name, phone, email, city || '', pincode || '', products || '', message]);
+    const headers = ['Timestamp', 'Name', 'Phone', 'Email', 'City', 'Pincode', 'Products', 'Message'];
+    await appendToSheet('Partner Requests', [timestamp, name, phone, email, city || '', pincode || '', products || '', message], headers);
 
     // Send email notification
     const fullMessage = `City: ${city || '-'}, Pincode: ${pincode || '-'}\nProducts: ${products || '-'}\n\n${message}`;

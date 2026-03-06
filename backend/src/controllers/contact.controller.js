@@ -7,7 +7,8 @@ async function submitContact(req, res, next) {
     const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
     // Save to Google Sheet
-    await appendToSheet('Contact Inquiries', [timestamp, name, phone, email, message]);
+    const headers = ['Timestamp', 'Name', 'Phone', 'Email', 'Message'];
+    await appendToSheet('Contact Inquiries', [timestamp, name, phone, email, message], headers);
 
     // Send email notification
     await sendNotification({ type: 'contact', name, phone, email, message });
