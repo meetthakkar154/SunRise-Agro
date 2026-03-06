@@ -120,9 +120,9 @@ button { cursor: pointer; font-family: inherit; }
 .navbar .container { display: flex; align-items: center; justify-content: space-between; }
 
 /* Logo */
-.nav-logo { display: flex; align-items: center; gap: .6rem; font-weight: 700; font-size: 1.35rem; color: var(--primary); text-decoration: none; flex-shrink: 0; }
+.nav-logo { display: flex; align-items: center; gap: .6rem; font-weight: 800; font-size: 1.15rem; color: var(--primary); text-decoration: none; flex-shrink: 0; }
 .nav-logo img { height: 70px; width: auto; object-fit: contain; }
-.nav-logo span { letter-spacing: .5px; line-height: 1.2; white-space: nowrap; }
+.nav-logo span { letter-spacing: 2.5px; line-height: 1.2; white-space: nowrap; text-transform: uppercase; font-family: 'Poppins', sans-serif; }
 
 /* Links container */
 .nav-links { display: flex; gap: .25rem; align-items: center; }
@@ -1658,7 +1658,7 @@ button { cursor: pointer; font-family: inherit; }
   .hero-badge { font-size: .62rem; }
   .section-title { font-size: 1.3rem; }
   .nav-logo img { height: 50px; }
-  .nav-logo span { font-size: 1.1rem; }
+  .nav-logo span { font-size: .85rem; letter-spacing: 1.5px; }
   .counter-item h2 { font-size: 1.5rem; }
   .gallery-grid { grid-template-columns: 1fr; }
   .gallery-item { height: 200px; }

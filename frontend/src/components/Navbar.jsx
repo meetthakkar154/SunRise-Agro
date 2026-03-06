@@ -78,7 +78,7 @@ export default function Navbar() {
           {/* Logo */}
           <a className="nav-logo" href="#home" onClick={() => scrollTo('home')}>
             <img src="/logo.webp" alt="Sunrise Agro Process Logo" />
-            <span>Sunrise Agro</span>
+            <span>SUNRISE AGRO PROCESS</span>
           </a>
 
           {/* Desktop + Mobile links */}
