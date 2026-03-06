@@ -51,7 +51,7 @@
 *::before,
 *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
   font-family: 'Poppins', system-ui, sans-serif;
@@ -732,22 +732,33 @@ button { cursor: pointer; font-family: inherit; }
 @media (max-width: 768px) {
   .ptl-line { left: 20px; }
   .ptl-row {
+    display: grid;
     grid-template-columns: 48px 1fr;
     padding: .75rem 0;
   }
-  .ptl-left  { display: none; }
-  .ptl-center { grid-column: 1; grid-row: 1 / 3; align-self: start; padding-top: .5rem; }
-  .ptl-right { grid-column: 2; grid-row: 1; padding-left: 1rem; }
+  .ptl-center { grid-column: 1; grid-row: 1; align-self: start; padding-top: .5rem; }
   .ptl-dot { width: 32px; height: 32px; font-size: .75rem; box-shadow: 0 0 0 4px var(--bg, #fff), 0 3px 10px rgba(230,168,23,.3); }
-  /* Always show card on right for mobile, hide image from right col */
-  .ptl-row--left .ptl-right { display: flex; }
-  .ptl-row--left .ptl-right .ptl-img { display: none; }
-  .ptl-row--right .ptl-right .ptl-card { display: block; }
-  /* Show card content for left rows on mobile */
-  .ptl-row--left .ptl-right::before { display: none; }
+
+  /* Hide all images on mobile timeline */
+  .ptl-img { display: none !important; }
+
+  /* Left rows: card is in ptl-left */
+  .ptl-row--left .ptl-left {
+    display: flex;
+    grid-column: 2; grid-row: 1;
+    padding: 0 0 0 1rem;
+    justify-content: flex-start;
+  }
+  .ptl-row--left .ptl-right { display: none; }
+
+  /* Right rows: card is in ptl-right */
+  .ptl-row--right .ptl-left { display: none; }
+  .ptl-row--right .ptl-right {
+    grid-column: 2; grid-row: 1;
+    padding-left: 1rem;
+  }
+
   .ptl-card { max-width: 100%; padding: 1.2rem 1.4rem; }
-  .ptl-img { max-width: 100%; }
-  .ptl-img img { height: 160px; }
 }
 
 /* ===== Gallery ===== */
