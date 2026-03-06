@@ -4,8 +4,8 @@ let sheets = null;
 let authorised = false;
 
 function initGoogleSheets() {
-  const clientEmail = process.env.GOOGLE_SERVICE_EMAIL;
-  const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+  const clientEmail = (process.env.GOOGLE_SERVICE_EMAIL || '').trim();
+  const privateKey = (process.env.GOOGLE_PRIVATE_KEY || '').trim();
 
   if (!clientEmail || !privateKey) {
     console.log('Google Sheets credentials not set. Sheets logging disabled.');
@@ -27,7 +27,7 @@ function initGoogleSheets() {
 async function appendToSheet(sheetName, row) {
   if (!authorised || !sheets) return;
 
-  const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+  const spreadsheetId = (process.env.GOOGLE_SHEET_ID || '').trim();
   if (!spreadsheetId) return;
 
   try {

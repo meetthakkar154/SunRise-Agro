@@ -3,8 +3,8 @@ const nodemailer = require('nodemailer');
 let transporter = null;
 
 function initMailer() {
-  const user = process.env.SMTP_EMAIL;
-  const pass = process.env.SMTP_PASSWORD;
+  const user = (process.env.SMTP_EMAIL || '').trim();
+  const pass = (process.env.SMTP_PASSWORD || '').trim();
 
   if (!user || !pass) {
     console.log('SMTP credentials not set. Email notifications disabled.');
@@ -22,7 +22,7 @@ function initMailer() {
 async function sendNotification({ type, name, phone, email, message }) {
   if (!transporter) return;
 
-  const notifyEmail = process.env.NOTIFY_EMAIL || process.env.SMTP_EMAIL;
+  const notifyEmail = (process.env.NOTIFY_EMAIL || process.env.SMTP_EMAIL || '').trim();
 
   const subject = type === 'partner'
     ? `🤝 New Partner Request from ${name}`
