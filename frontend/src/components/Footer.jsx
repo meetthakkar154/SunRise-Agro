@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaDownload } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
+// import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaDownload } from 'react-icons/fa';
 
 const sections = ['home', 'about', 'products', 'process', 'infrastructure', 'services', 'quality', 'contact'];
 
@@ -20,9 +21,9 @@ export default function Footer() {
             <p style={{ fontSize: '.9rem', opacity: .8, marginBottom: '1rem', lineHeight: 1.7 }}>
               Premium Sortex rice milling company specializing in high-quality cleaned rice, wheat, and millet for bulk supply across India.
             </p>
-            <a href="/catalog.pdf" download className="btn btn-outline" style={{ borderColor: 'var(--footer-text)', color: 'var(--footer-text)', fontSize: '.85rem', padding: '.5rem 1.2rem' }}>
+            {/* <a href="/catalog.pdf" download className="btn btn-outline" style={{ borderColor: 'var(--footer-text)', color: 'var(--footer-text)', fontSize: '.85rem', padding: '.5rem 1.2rem' }}>
               <FaDownload /> {t('catalog')}
-            </a>
+            </a> */}
           </div>
 
           {/* Quick Links */}
@@ -49,7 +50,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact + Social */}
+          {/* Contact + WhatsApp */}
           <div>
             <h4>{t('footer.contactInfo')}</h4>
             <ul>
@@ -60,13 +61,16 @@ export default function Footer() {
               <li>{t('contact.hours')}</li>
               <li><strong>{t('contact.gstLabel')}:</strong> {t('contact.gst')}</li>
             </ul>
-            <h4 style={{ marginTop: '1.2rem' }}>{t('footer.followUs')}</h4>
+            <div className="footer-social" style={{ marginTop: '1.2rem' }}>
+              <a href="https://wa.me/919898051994" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
+            </div>
+            {/* <h4 style={{ marginTop: '1.2rem' }}>{t('footer.followUs')}</h4>
             <div className="footer-social">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-            </div>
+            </div> */}
           </div>
         </div>
 
