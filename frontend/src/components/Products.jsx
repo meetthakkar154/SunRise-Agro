@@ -33,8 +33,7 @@ const fallback = [
   { id: 'gujarat-17-vatla', name: 'Gujarat-17 Vatla', category: 'Vatla', description: 'Vatla variant of Gujarat-17 with great absorption.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'High Absorption'], image: RICE_IMG },
   { id: 'krishna-kamod-vatla', name: 'Krishna Kamod Vatla', category: 'Vatla', description: 'Vatla variant — extra fluffy with natural fragrance.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Fluffy', 'Aromatic'], image: RICE_IMG },
   { id: 'lachkari-vatla', name: 'Lachkari Vatla', category: 'Vatla', description: 'Vatla variant of Lachkari with great absorption.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Fluffy', 'High Absorption'], image: RICE_IMG },
-  // Kasturi
-  { id: 'kasturi-rice', name: 'Kasturi Rice', category: 'Kasturi', description: 'Aromatic Kasturi rice with long grains and rich fragrance.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Long Grain', 'Rich Aroma', 'Premium'], image: RICE_IMG },
+  { id: 'kasturi-rice', name: 'Kasturi Rice', category: 'Rice', description: 'Aromatic Kasturi rice with long grains and rich fragrance.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Long Grain', 'Rich Aroma', 'Premium'], image: RICE_IMG },
   // Wheat
   { id: 'mp-sharbati-wheat', name: 'MP Sharbati Wheat', category: 'Wheat', description: 'Premium MP Sharbati wheat — high protein, golden grains.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'High Protein', 'Golden Grain'], image: WHEAT_IMG },
   { id: 'bhaliya-wheat', name: 'Bhaliya Wheat', category: 'Wheat', description: 'Gujarat Bhaliya wheat known for superior roti quality.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Superior Flour', 'Pure & Natural'], image: WHEAT_IMG },
@@ -43,7 +42,7 @@ const fallback = [
 ];
 
 const INITIAL_SHOW = 6;
-const categories = ['All', 'Rice', 'Poniya', 'Vatla', 'Kasturi', 'Wheat', 'White Pearl'];
+const categories = ['All', 'Rice', 'Poniya', 'Vatla', 'Wheat', 'White Pearl'];
 
 function ProductCard({ p, i, inView }) {
   const { t } = useTranslation();
