@@ -51,10 +51,26 @@ export default function Partners() {
   };
 
   const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
+
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) errs.name = t('partners.validation.name');
+    if (!/^[0-9]{10}$/.test(form.phone.trim())) errs.phone = t('partners.validation.phone');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = t('partners.validation.email');
+    if (!form.city.trim()) errs.city = t('partners.validation.city');
+    if (!/^[0-9]{6}$/.test(form.pincode.trim())) errs.pincode = t('partners.validation.pincode');
+    if (form.products.length === 0) errs.products = t('partners.validation.products');
+    if (!form.message.trim()) errs.message = t('partners.validation.message');
+    return errs;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    const errs = validate();
+    setFieldErrors(errs);
+    if (Object.keys(errs).length > 0) return;
     setLoading(true);
     try {
       const res = await fetch(`${API}/partners`, {
@@ -69,6 +85,7 @@ export default function Partners() {
       }
       setSent(true);
       setForm({ name: '', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
+      setFieldErrors({});
       setTimeout(() => setSent(false), 4000);
     } catch {
       setError('Network error. Please try again.');
@@ -104,14 +121,29 @@ export default function Partners() {
           >
             {showForm && (
               <form className="form" onSubmit={handleSubmit}>
-                <input name="name" placeholder={t('partners.formName')} value={form.name} onChange={handleChange} required />
-                <input name="phone" placeholder={t('partners.formPhone')} value={form.phone} onChange={handleChange} required />
-                <input name="email" type="email" placeholder={t('partners.formEmail')} value={form.email} onChange={handleChange} required />
+                <div className="form-field">
+                  <input name="name" placeholder={t('partners.formName')} value={form.name} onChange={handleChange} />
+                  {fieldErrors.name && <span className="field-error">{fieldErrors.name}</span>}
+                </div>
+                <div className="form-field">
+                  <input name="phone" placeholder={t('partners.formPhone')} value={form.phone} onChange={handleChange} maxLength={10} />
+                  {fieldErrors.phone && <span className="field-error">{fieldErrors.phone}</span>}
+                </div>
+                <div className="form-field">
+                  <input name="email" type="email" placeholder={t('partners.formEmail')} value={form.email} onChange={handleChange} />
+                  {fieldErrors.email && <span className="field-error">{fieldErrors.email}</span>}
+                </div>
 
                 {/* City & Pincode row */}
                 <div className="form-row">
-                  <input name="city" placeholder={t('partners.formCity')} value={form.city} onChange={handleChange} required />
-                  <input name="pincode" placeholder={t('partners.formPincode')} value={form.pincode} onChange={handleChange} required pattern="[0-9]{6}" maxLength={6} />
+                  <div className="form-field">
+                    <input name="city" placeholder={t('partners.formCity')} value={form.city} onChange={handleChange} />
+                    {fieldErrors.city && <span className="field-error">{fieldErrors.city}</span>}
+                  </div>
+                  <div className="form-field">
+                    <input name="pincode" placeholder={t('partners.formPincode')} value={form.pincode} onChange={handleChange} maxLength={6} />
+                    {fieldErrors.pincode && <span className="field-error">{fieldErrors.pincode}</span>}
+                  </div>
                 </div>
 
                 {/* Multi-select Products */}
@@ -149,7 +181,12 @@ export default function Partners() {
                   )}
                 </div>
 
-                <textarea name="message" placeholder={t('partners.formMessage')} value={form.message} onChange={handleChange} required />
+                {fieldErrors.products && <span className="field-error" style={{ marginTop: '-0.5rem' }}>{fieldErrors.products}</span>}
+
+                <div className="form-field">
+                  <textarea name="message" placeholder={t('partners.formMessage')} value={form.message} onChange={handleChange} />
+                  {fieldErrors.message && <span className="field-error">{fieldErrors.message}</span>}
+                </div>
                 <div style={{ textAlign: 'center' }}>
                   <button type="submit" className="btn btn-primary" disabled={loading}>
                     {loading ? <span className="spinner" /> : t('partners.formSubmit')}

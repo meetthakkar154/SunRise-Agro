@@ -112,6 +112,12 @@ button { cursor: pointer; font-family: inherit; }
   animation: spin .6s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* Form field validation */
+.form-field { display: flex; flex-direction: column; width: 100%; }
+.form-field input, .form-field textarea { width: 100%; }
+.field-error { color: #d32f2f; font-size: .8rem; margin-top: 2px; }
+
 .btn-accent { background: var(--accent); color: #fff; }
 .btn-accent:hover { background: #bf360c; }
 .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }

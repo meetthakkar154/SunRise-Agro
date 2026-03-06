@@ -169,7 +169,16 @@
     "productsSelected": "product(s) selected",
     "formMessage": "Message",
     "formSubmit": "Submit",
-    "submitted": "Submitted!"
+    "submitted": "Submitted!",
+    "validation": {
+      "name": "Name is required",
+      "phone": "Enter valid 10-digit phone number",
+      "email": "Enter a valid email address",
+      "city": "City is required",
+      "pincode": "Enter valid 6-digit pincode",
+      "products": "Select at least one product",
+      "message": "Message is required"
+    }
   },
   "contact": {
     "title": "Contact Us",
@@ -184,9 +193,19 @@
     "formName": "Name",
     "formPhone": "Phone",
     "formEmail": "Email",
+    "formCity": "City",
+    "formPincode": "Pincode (6 digits)",
     "formMessage": "Message",
     "send": "Send Message",
-    "success": "Message sent successfully!"
+    "success": "Message sent successfully!",
+    "validation": {
+      "name": "Name is required",
+      "phone": "Enter valid 10-digit phone number",
+      "email": "Enter a valid email address",
+      "city": "City is required",
+      "pincode": "Enter valid 6-digit pincode",
+      "message": "Message is required"
+    }
   },
   "footer": {
     "rights": "© 2026 Sunrise Agro Process. All rights reserved.",
