@@ -61,7 +61,6 @@ export default function Partners() {
     if (!form.city.trim()) errs.city = t('partners.validation.city');
     if (!/^[0-9]{6}$/.test(form.pincode.trim())) errs.pincode = t('partners.validation.pincode');
     if (form.products.length === 0) errs.products = t('partners.validation.products');
-    if (!form.message.trim()) errs.message = t('partners.validation.message');
     return errs;
   };
 

@@ -25,7 +25,6 @@ export default function Contact() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = t('contact.validation.email');
     if (!form.city.trim()) errs.city = t('contact.validation.city');
     if (!/^[0-9]{6}$/.test(form.pincode.trim())) errs.pincode = t('contact.validation.pincode');
-    if (!form.message.trim()) errs.message = t('contact.validation.message');
     return errs;
   };
 

@@ -11,7 +11,6 @@ const sharedValidators = [
   body('email').trim().isEmail().withMessage('Valid email is required'),
   body('city').trim().notEmpty().withMessage('City is required'),
   body('pincode').trim().matches(/^[0-9]{6}$/).withMessage('Pincode must be 6 digits'),
-  body('message').trim().notEmpty().withMessage('Message is required'),
 ];
 
 router.post('/', sharedValidators, validateRequest, submitContact);
