@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaDownload } from 'react-icons/fa';
 
-const sections = ['home', 'about', 'products', 'process', 'gallery', 'services', 'quality', 'partners', 'contact'];
+const sections = ['home', 'about', 'products', 'process', 'infrastructure', 'services', 'quality', 'contact'];
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -14,11 +14,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="footer-logo">
-              <img src="/logo.png" alt="SAP Logo" />
-              Sun Agro Process
+              <img src="/logo.webp" alt="Sunrise Agro Process Logo" />
+              Sunrise Agro Process
             </div>
             <p style={{ fontSize: '.9rem', opacity: .8, marginBottom: '1rem', lineHeight: 1.7 }}>
-              Trusted agro-processing company specializing in rice milling and agricultural product processing.
+              Premium Sortex rice milling company specializing in high-quality cleaned rice, wheat, and millet for bulk supply across India.
             </p>
             <a href="/catalog.pdf" download className="btn btn-outline" style={{ borderColor: 'var(--footer-text)', color: 'var(--footer-text)', fontSize: '.85rem', padding: '.5rem 1.2rem' }}>
               <FaDownload /> {t('catalog')}
@@ -39,11 +39,13 @@ export default function Footer() {
           <div>
             <h4>{t('footer.ourProducts')}</h4>
             <ul>
-              <li><a href="#products" onClick={() => scrollTo('products')}>Rice (Chokha)</a></li>
-              <li><a href="#products" onClick={() => scrollTo('products')}>Basmati Rice</a></li>
-              <li><a href="#products" onClick={() => scrollTo('products')}>Sona Masuri</a></li>
-              <li><a href="#products" onClick={() => scrollTo('products')}>Broken Rice</a></li>
-              <li><a href="#products" onClick={() => scrollTo('products')}>Steam Rice</a></li>
+              <li><a href="#products" onClick={() => scrollTo('products')}>Wadakolam Rice</a></li>
+              <li><a href="#products" onClick={() => scrollTo('products')}>Kali Muchh Rice</a></li>
+              <li><a href="#products" onClick={() => scrollTo('products')}>Krishna Kamod</a></li>
+              <li><a href="#products" onClick={() => scrollTo('products')}>Gujarat-17 Rice</a></li>
+              <li><a href="#products" onClick={() => scrollTo('products')}>Lachkari Rice</a></li>
+              <li><a href="#products" onClick={() => scrollTo('products')}>MP Sharbati Wheat</a></li>
+              <li><a href="#products" onClick={() => scrollTo('products')}>Green Gold Bajri</a></li>
             </ul>
           </div>
 
@@ -53,7 +55,10 @@ export default function Footer() {
             <ul>
               <li>{t('contact.address')}</li>
               <li>{t('contact.phone')}</li>
+              <li>{t('contact.phone2')}</li>
               <li>{t('contact.email')}</li>
+              <li>{t('contact.hours')}</li>
+              <li><strong>{t('contact.gstLabel')}:</strong> {t('contact.gst')}</li>
             </ul>
             <h4 style={{ marginTop: '1.2rem' }}>{t('footer.followUs')}</h4>
             <div className="footer-social">

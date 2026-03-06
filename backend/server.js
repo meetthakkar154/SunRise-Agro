@@ -4,7 +4,8 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const dotenv = require('dotenv');
-const { connectDb } = require('./src/config/db');
+const { initGoogleSheets } = require('./src/services/googleSheets');
+const { initMailer } = require('./src/services/mailer');
 const productsRouter = require('./src/routes/products.routes');
 const contactRouter = require('./src/routes/contact.routes');
 const partnerRouter = require('./src/routes/partners.routes');
@@ -40,8 +41,9 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ message: err.message || 'Server error' });
 });
 
-connectDb().finally(() => {
-  app.listen(port, () => {
-    console.log(`SAP backend running on port ${port}`);
-  });
+initGoogleSheets();
+initMailer();
+
+app.listen(port, () => {
+  console.log(`SAP backend running on port ${port}`);
 });

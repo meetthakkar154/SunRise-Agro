@@ -7,40 +7,109 @@
     "gallery": "Gallery",
     "services": "Services",
     "quality": "Quality",
+    "infrastructure": "Infrastructure",
     "partners": "Partners",
     "contact": "Contact"
   },
   "hero": {
-    "tagline": "From Farm to Quality – Trusted Agro Processing",
+    "taglineLine1": "Purity Engineered",
+    "taglineLine2": "in Every Grain.",
     "viewProducts": "View Products",
     "contactUs": "Contact Us"
   },
   "about": {
     "title": "About Us",
-    "intro": "Sun Agro Process is a trusted agro-processing company specializing in rice milling and agricultural product processing. The company focuses on delivering high-quality grains while maintaining modern processing standards.",
-    "mission": "Mission",
-    "missionText": "To deliver high-quality agricultural products through advanced processing techniques.",
-    "vision": "Vision",
-    "visionText": "To become a trusted agro-processing brand in India.",
-    "values": "Our Values",
-    "valuesText": "Integrity, quality, innovation, and commitment to the agricultural community."
+    "storyTitle": "Our Story",
+    "intro": "Located in Khambhat, Sunrise Agro Process is a modern rice milling company dedicated to delivering high-quality, naturally processed rice to wholesalers. With more than 15 years of industry experience, we combine advanced milling technology with strong farmer relationships to provide consistent quality at competitive pricing.",
+    "intro2": "Our facility in Anand District processes carefully selected paddy sourced from farmers, APMC markets, and trusted suppliers to produce premium Sortex-clean rice for the wholesale market.",
+    "story": "Sunrise Agro Process was established in 2021 as a modern upgrade to years of experience in the rice industry. The company was founded by Mr. Rajesh Thakkar and Mr. Kinjal Fadiya, who together bring over 15 years of experience in rice trading and processing. The company was created with a clear goal: To become one of the most trusted rice milling companies by delivering natural, high-quality rice at reasonable prices.",
+    "capacity": "Daily Milling Capacity: 35 Tons",
+    "technology": "Technology: Milltech Milling Machinery & QED Sortex Technology",
+    "mission": "Our Mission",
+    "missionText": "To supply natural, high-quality rice while maintaining long-term relationships with farmers and customers through fair pricing, transparency, and modern milling technology.",
+    "values": "Our Core Values",
+    "valuesList": [
+      "Quality First",
+      "Strong Farmer Relationships",
+      "Competitive Pricing",
+      "Customer Satisfaction",
+      "Modern Milling Technology",
+      "Natural Rice Processing"
+    ]
+  },
+  "founders": {
+    "label": "Leadership",
+    "title": "Meet Our Founders",
+    "subtitle": "The visionaries behind Sunrise Agro Process — combining decades of rice industry expertise",
+    "yearsExp": "Years Exp",
+    "rajesh": {
+      "name": "Mr. Rajesh Thakkar",
+      "role": "Co-Founder",
+      "desc": "Mr. Rajesh Thakkar brings over 15 years of experience in the rice industry, specializing in rice quality assessment, sales, and milling operations. Alongside Sunrise Agro Process, he successfully manages three rice trading companies dealing in bulk raw paddy and rice, giving him deep market knowledge. Known for his strong decision-making, quality focus, and leadership in factory operations, he plays a key role in maintaining consistent product standards."
+    },
+    "kinjal": {
+      "name": "Mr. Kinjal Fadiya",
+      "role": "Co-Founder",
+      "desc": "Mr. Kinjal Fadiya has more than 10 years of experience in rice procurement and business management within the grain industry. He oversees raw material purchasing, supplier coordination, and final product supervision to ensure smooth production flow. With strong business management skills, confidence, and market understanding, he contributes significantly to operational efficiency and company growth."
+    }
   },
   "products": {
     "title": "Our Products",
-    "subtitle": "Premium Quality Agricultural Products",
+    "subtitle": "Premium Sortex Rice Varieties for Wholesalers & Bulk Buyers",
     "quality": "Grade",
-    "packaging": "Packaging"
+    "packaging": "Packaging",
+    "features": "Features",
+    "allProducts": "All",
+    "packagingNote": "All rice is available in 30kg and 50kg PP bags",
+    "requestQuote": "Request Quote",
+    "availableIn": "Available in:",
+    "viewAll": "View All Products",
+    "showLess": "Show Less",
+    "size30": "30kg bags",
+    "size50": "50kg bags",
+    "cat": {
+      "Rice": "Rice",
+      "Poniya": "Poniya",
+      "Vatla": "Vatla",
+      "Kasturi": "Kasturi",
+      "Wheat": "Wheat",
+      "White Pearl": "White Pearl (Bajri)"
+    },
+    "items": {
+      "wadakolam-rice": { "name": "Wadakolam Rice", "desc": "Premium Wadakolam rice with soft texture and great taste.", "features": ["Sortex Cleaned", "Soft Texture", "Natural Aroma", "Daily Use"] },
+      "wadakolam-old": { "name": "Wadakolam Old Rice", "desc": "Aged Wadakolam rice — extra fluffy after cooking.", "features": ["Sortex Cleaned", "Aged Quality", "Extra Fluffy", "Premium"] },
+      "wadakolam-poniya": { "name": "Wadakolam Poniya Rice", "desc": "Poniya variant with quick cooking properties.", "features": ["Sortex Cleaned", "Quick Cook", "Soft Texture"] },
+      "wadakolam-vatla": { "name": "Wadakolam Vatla Rice", "desc": "Vatla variant for extra absorption and fluffy results.", "features": ["Sortex Cleaned", "High Absorption", "Fluffy"] },
+      "kali-muchh-rice": { "name": "Kali Muchh Rice", "desc": "Distinctive rice known for unique appearance and rich flavor.", "features": ["Sortex Cleaned", "Rich Flavor", "Unique Grain"] },
+      "kali-muchh-poniya": { "name": "Kali Muchh Poniya Rice", "desc": "Poniya variant with quick cooking and soft texture.", "features": ["Sortex Cleaned", "Quick Cook", "Soft"] },
+      "kali-muchh-vatla": { "name": "Kali Muchh Vatla Rice", "desc": "Vatla variant with excellent water absorption.", "features": ["Sortex Cleaned", "High Absorption"] },
+      "gujarat-13-rice": { "name": "Gujarat-13 Rice", "desc": "Reliable Gujarat-13 rice for everyday cooking.", "features": ["Sortex Cleaned", "Durable Grain", "Economical"] },
+      "gujarat-13-poniya": { "name": "Gujarat-13 Poniya Rice", "desc": "Poniya variant of Gujarat-13 with quick cooking.", "features": ["Sortex Cleaned", "Quick Cook"] },
+      "gujarat-13-vatla": { "name": "Gujarat-13 Vatla Rice", "desc": "Vatla variant of Gujarat-13 — extra fluffy.", "features": ["Sortex Cleaned", "Fluffy"] },
+      "gujarat-17-rice": { "name": "Gujarat-17 Rice", "desc": "High-yield Gujarat-17 with excellent milling quality.", "features": ["Sortex Cleaned", "High Yield", "Uniform Size"] },
+      "gujarat-17-poniya": { "name": "Gujarat-17 Poniya Rice", "desc": "Poniya variant of Gujarat-17 for quick preparation.", "features": ["Sortex Cleaned", "Quick Cook"] },
+      "gujarat-17-vatla": { "name": "Gujarat-17 Vatla Rice", "desc": "Vatla variant of Gujarat-17 with great absorption.", "features": ["Sortex Cleaned", "High Absorption"] },
+      "krishna-kamod-rice": { "name": "Krishna Kamod Rice", "desc": "Premium aromatic rice with distinctive taste.", "features": ["Sortex Cleaned", "Natural Aroma", "Premium Grain"] },
+      "krishna-kamod-poniya": { "name": "Krishna Kamod Poniya Rice", "desc": "Poniya variant for quick, soft cooked rice.", "features": ["Sortex Cleaned", "Quick Cook", "Aromatic"] },
+      "krishna-kamod-vatla": { "name": "Krishna Kamod Vatla Rice", "desc": "Vatla variant — extra fluffy with natural fragrance.", "features": ["Sortex Cleaned", "Fluffy", "Aromatic"] },
+      "lachkari-rice": { "name": "Lachkari Rice", "desc": "Known for slender grains and delicate flavor.", "features": ["Sortex Cleaned", "Slender Grain", "Delicate Flavor"] },
+      "lachkari-poniya": { "name": "Lachkari Poniya Rice", "desc": "Poniya variant — quick cooking, soft results.", "features": ["Sortex Cleaned", "Quick Cook", "Soft"] },
+      "lachkari-vatla": { "name": "Lachkari Vatla Rice", "desc": "Vatla variant with great absorption.", "features": ["Sortex Cleaned", "Fluffy", "High Absorption"] },
+      "mp-sharbati-wheat": { "name": "MP Sharbati Wheat", "desc": "Premium wheat — high protein, golden grains.", "features": ["Sortex Cleaned", "High Protein", "Golden Grain"] },
+      "bhaliya-wheat": { "name": "Bhaliya Wheat", "desc": "Gujarat wheat known for superior roti quality.", "features": ["Sortex Cleaned", "Superior Flour", "Pure & Natural"] },
+      "green-gold-bajri": { "name": "Green Gold Bajri", "desc": "Nutritious pearl millet processed with care.", "features": ["Sortex Cleaned", "High Nutrition", "Traditional Grain"] },
+      "kasturi-rice": { "name": "Kasturi Rice", "desc": "Aromatic Kasturi rice with long grains and rich fragrance.", "features": ["Sortex Cleaned", "Long Grain", "Rich Aroma", "Premium"] }
+    }
   },
   "process": {
-    "title": "Our Processing",
-    "subtitle": "State-of-the-art Milling Process",
+    "title": "Our Milling Process",
+    "subtitle": "Modern Rice Milling Process to Maintain Natural Quality",
     "steps": [
-      { "name": "Grain Cleaning", "desc": "Thorough cleaning to remove impurities and foreign materials." },
-      { "name": "Husking", "desc": "Removal of husks using advanced rubber-roll huskers." },
-      { "name": "Milling", "desc": "Precision milling to achieve the desired grain finish." },
-      { "name": "Polishing", "desc": "Gentle polishing for a premium look and texture." },
-      { "name": "Sorting", "desc": "Optical sorting to ensure uniform quality grains." },
-      { "name": "Packaging", "desc": "Hygienic and airtight packaging for maximum freshness." }
+      { "name": "Paddy Procurement", "desc": "Paddy is sourced from local farmers, APMC markets (Khambhat), government online tenders, local dealers and nearby villages." },
+      { "name": "Cleaning & De-Stoning", "desc": "Raw paddy is cleaned to remove dust, stones, and impurities for a pure base material." },
+      { "name": "Milling Process", "desc": "Using advanced Milltech milling machinery, the paddy is carefully processed to maintain grain strength and minimize breakage." },
+      { "name": "Sortex Color Sorting", "desc": "Our QED Sortex machine removes defective grains and ensures uniform color and premium quality." },
+      { "name": "Packaging", "desc": "Finished rice is packed in durable PP bags (30kg & 50kg) for wholesale distribution." }
     ]
   },
   "gallery": {
@@ -48,30 +117,49 @@
     "subtitle": "A Glimpse Into Our Operations"
   },
   "services": {
-    "title": "Our Services",
-    "subtitle": "Comprehensive Agro-Processing Solutions",
+    "title": "Why Choose Us",
+    "subtitle": "What Sets Sunrise Agro Process Apart",
+    "learnMore": "Learn More",
+    "highlights": "Key Highlights",
+    "close": "Close",
     "list": [
-      { "name": "Rice Milling", "desc": "Advanced milling machinery for consistent, premium rice output." },
-      { "name": "Grain Processing", "desc": "Multi-grain processing capabilities with modern equipment." },
-      { "name": "Packaging", "desc": "Hygienic, branded packaging in various sizes." },
-      { "name": "Bulk Supply", "desc": "Reliable bulk supply for distributors and institutions." },
-      { "name": "Wholesale Distribution", "desc": "Pan-India wholesale distribution network for all products." }
+      { "name": "Advanced Sortex Cleaning", "desc": "QED Sortex technology removes impurities and ensures premium quality grains with uniform color.", "details": "Our QED Sortex machine uses high-resolution cameras and optical sensors to detect and remove discolored grains, stones, and foreign particles. Each grain passes through multiple stages of optical sorting to deliver consistently clean output that meets wholesale quality standards.", "highlights": ["QED Sortex technology", "Optical color sorting", "Multi-stage cleaning", "Uniform grain output"] },
+      { "name": "Milltech Milling Machinery", "desc": "Advanced milling technology that maintains grain strength and minimizes breakage for superior quality.", "details": "Our Milltech milling machinery is designed for precision rice processing. The advanced engineering maintains the natural grain structure while achieving optimal milling recovery. This results in stronger, more uniform grains that command premium wholesale prices.", "highlights": ["Precision milling", "Minimal grain breakage", "Optimal milling recovery", "35 tons daily capacity"] },
+      { "name": "Direct Farmer Relationships", "desc": "Strong partnerships with local farmers ensure quality paddy sourcing at fair prices.", "details": "We source directly from local farmers, APMC markets, and trusted suppliers. Our 15+ years of relationships in the industry ensure we get the best quality paddy at competitive prices, which we pass on to our wholesale customers.", "highlights": ["15+ years farmer network", "APMC market sourcing", "Fair pricing practices", "Quality paddy selection"] },
+      { "name": "Competitive Wholesale Pricing", "desc": "Efficient operations and direct sourcing enable the most competitive prices for bulk buyers.", "details": "Our efficient milling operations, direct farmer sourcing, and strategic location on Khambhat-Dharmaj Highway minimize overhead costs. We pass these savings to our wholesale customers with competitive pricing structures for bulk orders.", "highlights": ["Direct sourcing savings", "Efficient operations", "Strategic location", "Volume-based pricing"] },
+      { "name": "Consistent Quality Supply", "desc": "35 tons daily milling capacity with large storage ensures year-round availability.", "details": "With a daily milling capacity of 35 tons and large storage facilities for both paddy and finished rice, we maintain consistent stock availability. Our efficient loading and dispatch system ensures timely delivery to wholesalers across the region.", "highlights": ["35 tons/day capacity", "Large storage facility", "Year-round availability", "Efficient dispatch system"] },
+      { "name": "Quality Certifications", "desc": "FSSAI Certified and ZED Bronze Certified facility ensuring food safety and quality manufacturing.", "details": "Our facility holds FSSAI Certification for food safety compliance and ZED Bronze Certification for quality manufacturing practices. These certifications reflect our commitment to maintaining the highest standards in rice processing and food safety.", "highlights": ["FSSAI Certified", "ZED Bronze Certified", "Food safety compliance", "Quality manufacturing"] }
     ]
   },
   "quality": {
     "title": "Quality Assurance",
-    "subtitle": "We Guarantee Quality at Every Step",
+    "subtitle": "Quality is the Foundation of Our Business",
+    "certTitle": "Certifications",
+    "certifications": ["FSSAI Certified", "ZED Bronze Certified", "GST: 24AELFS4889J1Z9"],
     "items": [
-      "Modern Machinery",
-      "Hygienic Processing",
-      "Quality Inspection",
-      "Packaging Standards"
+      "Careful Selection of Paddy",
+      "Advanced Milltech Milling Technology",
+      "QED Sortex Cleaning for Purity",
+      "Consistent Grain Quality",
+      "Hygienic Processing & Packaging"
+    ]
+  },
+  "infrastructure": {
+    "title": "Our Infrastructure",
+    "subtitle": "Modern Milling Unit on Khambhat–Dharmaj Highway",
+    "intro": "Our modern milling unit is located on Khambhat–Dharmaj Highway, enabling efficient transportation and logistics.",
+    "highlights": [
+      { "label": "Daily Milling Capacity", "value": "35 Tons" },
+      { "label": "Milling Machinery", "value": "Advanced Milltech" },
+      { "label": "Sorting Technology", "value": "QED Sortex" },
+      { "label": "Storage", "value": "Large Capacity" },
+      { "label": "Loading & Dispatch", "value": "Efficient System" }
     ]
   },
   "partners": {
-    "title": "Farmers & Partners",
-    "subtitle": "Growing Together",
-    "text": "We work directly with farmers to ensure fair pricing and quality sourcing. Join our network of trusted partners.",
+    "title": "Our Customers",
+    "subtitle": "Building Long-Term Wholesale Partnerships",
+    "text": "Sunrise Agro Process primarily supplies rice to rice wholesalers, grain traders, and bulk distributors. Our focus is on building long-term wholesale partnerships by delivering consistent quality and competitive pricing.",
     "becomePartner": "Become a Partner",
     "formName": "Name",
     "formPhone": "Phone",
@@ -82,9 +170,13 @@
   "contact": {
     "title": "Contact Us",
     "subtitle": "Get In Touch",
-    "address": "Sun Agro Process, Industrial Area, Gujarat, India",
-    "phone": "+91 98765 43210",
-    "email": "info@sunagroprocess.com",
+    "address": "36/1 Chhatardi, Khambhat–Dharmaj Highway, Khambhat, Dist. Anand, Gujarat – 388640, India",
+    "phone": "+91 8200101235",
+    "phone2": "+91 9913895993",
+    "email": "sunriseagroprocess2021@gmail.com",
+    "hours": "9:00 AM – 7:00 PM | Open All Days",
+    "gstLabel": "GST No.",
+    "gst": "24AELFS4889J1Z9",
     "formName": "Name",
     "formPhone": "Phone",
     "formEmail": "Email",
@@ -93,7 +185,7 @@
     "success": "Message sent successfully!"
   },
   "footer": {
-    "rights": "© 2026 Sun Agro Process. All rights reserved.",
+    "rights": "© 2026 Sunrise Agro Process. All rights reserved.",
     "quickLinks": "Quick Links",
     "ourProducts": "Our Products",
     "contactInfo": "Contact Info",
@@ -106,8 +198,43 @@
   },
   "counters": {
     "yearsExp": "Years Experience",
-    "tonnesProcessed": "Tonnes Processed",
-    "happyClients": "Happy Clients",
-    "farmers": "Partner Farmers"
+    "dailyCapacity": "Tons Daily Capacity",
+    "riceVarieties": "Rice Varieties",
+    "happyClients": "Happy Clients"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by Wholesalers & Traders Across India",
+    "list": [
+      { "name": "Rajesh Patel", "business": "Wholesale Rice Trader, Ahmedabad", "rating": 5, "comment": "Excellent quality Sortex rice with consistent cleaning. Sunrise Agro Process has been our reliable supplier for the past 3 years. The QED Sortex quality is unmatched. Highly recommended for bulk buyers." },
+      { "name": "Meena Shah", "business": "Grain Distributor, Anand", "rating": 5, "comment": "The grain quality is top-notch and pricing is very competitive. Their Wadakolam and Kali Muchh varieties are always in demand with our customers. Great service and timely delivery!" },
+      { "name": "Vikram Singh", "business": "Rice Wholesaler, Vadodara", "rating": 5, "comment": "We have been sourcing Gujarat-17 and Krishna Kamod from Sunrise Agro for our wholesale business. The uniform grading and Sortex purity is excellent. Professional and trustworthy partner." }
+    ]
+  },
+  "financial": {
+    "label": "Financial Overview",
+    "title": "5-Year Financial Summary",
+    "subtitle": "Consistent growth reflecting our commitment to quality and customer trust",
+    "chartTitle": "5-Year Financial Trend",
+    "tableTitle": "Yearly Turnover & Growth",
+    "currentTurnover": "Current Turnover",
+    "totalGrowth": "Total Growth",
+    "sinceInception": "Since 2021-22",
+    "peakGrowth": "Peak Growth Year",
+    "year": "Year",
+    "turnover": "Turnover",
+    "growthPct": "Growth %"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Common Questions About Our Products & Services",
+    "list": [
+      { "q": "What is Sortex processing?", "a": "Sortex is an advanced color sorting technology that removes discolored grains, stones, and foreign particles using optical sensors. We use QED Sortex technology to ensure you receive only premium quality, pure grains." },
+      { "q": "What are your minimum order quantities?", "a": "We cater to wholesale and bulk orders. All rice is available in 30kg and 50kg PP bags. For specific requirements and pricing, please contact us at +91 8200101235 or +91 9913895993." },
+      { "q": "What rice varieties do you produce?", "a": "We produce Wadakolam (including Old, Poniya, Vatla), Kali Muchh, Gujarat-13, Gujarat-17, Krishna Kamod, and Lachkari rice varieties. We also supply MP Sharbati Wheat, Bhaliya Wheat, and Green Gold Bajri." },
+      { "q": "What packaging options are available?", "a": "All our rice products are packed in durable 30kg and 50kg PP bags suitable for wholesale distribution. Custom requirements can be discussed for large orders." },
+      { "q": "What milling technology do you use?", "a": "We use advanced Milltech milling machinery for rice processing and QED Sortex technology for color sorting. Our daily milling capacity is 35 tons." },
+      { "q": "Where are you located?", "a": "We are located at 36/1 Chhatardi, Khambhat–Dharmaj Highway, Khambhat, Dist. Anand, Gujarat – 388640. Our strategic highway location enables efficient transportation and logistics." }
+    ]
   }
 }

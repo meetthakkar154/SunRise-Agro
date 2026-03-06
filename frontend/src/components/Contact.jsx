@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaFileAlt } from 'react-icons/fa';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
@@ -45,16 +45,28 @@ export default function Contact() {
             </div>
             <div className="contact-info-item">
               <span className="contact-icon"><FaPhoneAlt /></span>
-              <div><strong>Phone</strong><p>{t('contact.phone')}</p></div>
+              <div>
+                <strong>Phone / WhatsApp</strong>
+                <p>{t('contact.phone')}</p>
+                <p>{t('contact.phone2')}</p>
+              </div>
             </div>
             <div className="contact-info-item">
               <span className="contact-icon"><FaEnvelope /></span>
               <div><strong>Email</strong><p>{t('contact.email')}</p></div>
             </div>
+            <div className="contact-info-item">
+              <span className="contact-icon"><FaClock /></span>
+              <div><strong>Working Hours</strong><p>{t('contact.hours')}</p></div>
+            </div>
+            <div className="contact-info-item">
+              <span className="contact-icon"><FaFileAlt /></span>
+              <div><strong>{t('contact.gstLabel')}</strong><p>{t('contact.gst')}</p></div>
+            </div>
             <div className="map-wrapper">
               <iframe
-                title="Sun Agro Process Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.123456789!2d72.5713621!3d23.022505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAxJzIxLjAiTiA3MsKwMzQnMTcuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                title="Sunrise Agro Process Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.4!2d72.663069!3d22.3496243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395f01ff53c0926b%3A0x840f447190ff7b93!2sSUNRISE%20AGRO%20PROCESS!5e0!3m2!1sen!2sin!4v1709654400000"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

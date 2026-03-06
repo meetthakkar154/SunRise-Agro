@@ -5,14 +5,14 @@ import { useInView } from 'react-intersection-observer';
 import { FiZoomIn, FiX } from 'react-icons/fi';
 
 const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80', alt: 'Factory' },
-  { src: 'https://images.unsplash.com/photo-1530836176759-510f58baebf4?auto=format&fit=crop&w=800&q=80', alt: 'Milling machines' },
-  { src: 'https://images.unsplash.com/photo-1586201375761-83865001e31d?auto=format&fit=crop&w=800&q=80', alt: 'Rice grains' },
-  { src: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80', alt: 'Rice fields' },
-  { src: 'https://images.unsplash.com/photo-1603046891726-36bfd957e0bf?auto=format&fit=crop&w=800&q=80', alt: 'Warehouse' },
-  { src: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80', alt: 'Grain storage' },
-  { src: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80', alt: 'Processing' },
-  { src: 'https://images.unsplash.com/photo-1615486363972-f79e0f2b4f2b?auto=format&fit=crop&w=800&q=80', alt: 'Farmers' },
+  { src: '/sap1.webp', alt: 'Sunrise Agro Process 1' },
+  { src: '/sap2.webp', alt: 'Sunrise Agro Process 2' },
+  { src: '/sap3.webp', alt: 'Sunrise Agro Process 3' },
+  { src: '/sap4.webp', alt: 'Sunrise Agro Process 4' },
+  { src: '/sap5.webp', alt: 'Sunrise Agro Process 5' },
+  { src: '/sap6.webp', alt: 'Sunrise Agro Process 6' },
+  { src: '/sap7.webp', alt: 'Sunrise Agro Process 7' },
+  { src: '/sap8.webp', alt: 'Sunrise Agro Process 8' },
 ];
 
 export default function Gallery() {

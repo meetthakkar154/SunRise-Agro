@@ -4,9 +4,9 @@ import { useInView } from 'react-intersection-observer';
 
 const data = [
   { end: 15, key: 'yearsExp', suffix: '+' },
-  { end: 50000, key: 'tonnesProcessed', suffix: '+' },
-  { end: 1200, key: 'happyClients', suffix: '+' },
-  { end: 800, key: 'farmers', suffix: '+' },
+  { end: 35, key: 'dailyCapacity', suffix: ' Tons' },
+  { end: 20, key: 'riceVarieties', suffix: '+' },
+  { end: 500, key: 'happyClients', suffix: '+' },
 ];
 
 function AnimatedNumber({ end, suffix, started }) {

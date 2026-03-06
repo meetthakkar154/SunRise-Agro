@@ -1,58 +1,42 @@
 const products = [
-  {
-    id: 'rice-chokha',
-    name: 'Rice (Chokha)',
-    description: 'Premium milled rice suitable for daily household and wholesale use.',
-    qualityGrade: 'A',
-    packaging: '10kg, 25kg, 50kg',
-    image:
-      'https://images.unsplash.com/photo-1586201375761-83865001e31d?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'basmati',
-    name: 'Basmati Rice',
-    description: 'Long-grain aromatic basmati with consistent quality and aroma.',
-    qualityGrade: 'A+',
-    packaging: '5kg, 10kg, 25kg',
-    image:
-      'https://images.unsplash.com/photo-1603046891726-36bfd957e0bf?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'sona-masuri',
-    name: 'Sona Masuri',
-    description: 'Lightweight and soft-textured rice ideal for everyday meals.',
-    qualityGrade: 'A',
-    packaging: '10kg, 25kg, 50kg',
-    image:
-      'https://images.unsplash.com/photo-1615486363972-f79e0f2b4f2b?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'broken-rice',
-    name: 'Broken Rice',
-    description: 'Economical broken rice for food processing and bulk buyers.',
-    qualityGrade: 'B+',
-    packaging: '25kg, 50kg',
-    image:
-      'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'raw-rice',
-    name: 'Raw Rice',
-    description: 'Naturally processed raw rice preserving grain strength and nutrition.',
-    qualityGrade: 'A',
-    packaging: '10kg, 25kg, 50kg',
-    image:
-      'https://images.unsplash.com/photo-1516683037151-9f1e3d6e1c9f?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'steam-rice',
-    name: 'Steam Rice',
-    description: 'Uniform steamed rice with high cooking performance and shelf life.',
-    qualityGrade: 'A+',
-    packaging: '10kg, 25kg, 50kg',
-    image:
-      'https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80',
-  },
+  // Wadakolam Rice Series
+  { id: 'wadakolam-rice', name: 'Wadakolam Rice', category: 'Rice', description: 'Premium Wadakolam rice known for its soft texture and excellent water absorption. Ideal for everyday meals.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Soft Texture', 'High Absorption', 'Daily Use'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'wadakolam-old', name: 'Wadakolam Old', category: 'Rice', description: 'Aged Wadakolam rice with enhanced flavor and better cooking expansion. Premium aged quality.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Aged Quality', 'Better Expansion', 'Rich Flavor'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'wadakolam-poniya', name: 'Wadakolam Poniya', category: 'Poniya', description: 'Poniya-style Wadakolam rice, lighter and fluffier grain ideal for soft rice preparations.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Light Grain', 'Fluffy Texture', 'Soft Cook'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'wadakolam-vatla', name: 'Wadakolam Vatla', category: 'Vatla', description: 'Vatla-grade Wadakolam rice with thicker grain, perfect for daily use and commercial kitchens.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Thick Grain', 'Commercial Grade', 'Value Pack'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+
+  // Kali Muchh Rice Series
+  { id: 'kali-muchh-rice', name: 'Kali Muchh Rice', category: 'Rice', description: 'Popular Kali Muchh rice variety with distinctive dark-tipped grains and excellent taste.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Distinctive Grain', 'Great Taste', 'Premium Quality'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'kali-muchh-poniya', name: 'Kali Muchh Poniya', category: 'Poniya', description: 'Lighter Poniya grade of Kali Muchh rice, ideal for softer rice dishes.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Poniya Grade', 'Soft Grain', 'Daily Use'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'kali-muchh-vatla', name: 'Kali Muchh Vatla', category: 'Vatla', description: 'Vatla grade Kali Muchh rice for commercial and bulk cooking requirements.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Vatla Grade', 'Bulk Cooking', 'Economical'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+
+  // Gujarat Series Rice
+  { id: 'gujarat-13-rice', name: 'Gujarat-13 Rice', category: 'Rice', description: 'Reliable Gujarat-13 rice known for its durability and cooking performance. A staple variety.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Durable Grain', 'Good Cooking', 'Staple Variety'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'gujarat-13-poniya', name: 'Gujarat-13 Poniya', category: 'Poniya', description: 'Poniya grade Gujarat-13 rice with lighter grain for softer preparations.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Light Grain', 'Soft Cook', 'Poniya Grade'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'gujarat-13-vatla', name: 'Gujarat-13 Vatla', category: 'Vatla', description: 'Vatla grade Gujarat-13 rice for commercial kitchens and bulk use.', qualityGrade: 'A', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Commercial Grade', 'Bulk Use', 'Economical'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'gujarat-17-rice', name: 'Gujarat-17 Rice', category: 'Rice', description: 'High-yield Gujarat-17 rice with excellent milling quality for wholesale distribution.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'High Yield', 'Uniform Size', 'Wholesale Ready'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'gujarat-17-poniya', name: 'Gujarat-17 Poniya', category: 'Poniya', description: 'Poniya grade Gujarat-17 rice, lighter and ideal for everyday cooking.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Light Grain', 'Daily Use', 'Poniya Grade'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'gujarat-17-vatla', name: 'Gujarat-17 Vatla', category: 'Vatla', description: 'Vatla grade Gujarat-17 rice for commercial and institutional use.', qualityGrade: 'A', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Vatla Grade', 'Institutional Use', 'Value Pack'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+
+  // Krishna Kamod (Premium Aromatic)
+  { id: 'krishna-kamod-rice', name: 'Krishna Kamod Rice', category: 'Rice', description: 'Premium aromatic Krishna Kamod rice with excellent taste and natural fragrance.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Natural Aroma', 'Premium Taste', 'Long Grain'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'krishna-kamod-poniya', name: 'Krishna Kamod Poniya', category: 'Poniya', description: 'Poniya grade Krishna Kamod rice with lighter aromatic grain.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Aromatic', 'Poniya Grade', 'Premium Quality'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'krishna-kamod-vatla', name: 'Krishna Kamod Vatla', category: 'Vatla', description: 'Vatla grade Krishna Kamod rice for value-conscious bulk buyers.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Aromatic', 'Vatla Grade', 'Bulk Available'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+
+  // Lachkari Rice
+  { id: 'lachkari-rice', name: 'Lachkari Rice', category: 'Rice', description: 'Lachkari rice known for its flexibility and distinctive cooking characteristics.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Flexible Grain', 'Distinctive Cook', 'Premium Quality'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'lachkari-poniya', name: 'Lachkari Poniya', category: 'Poniya', description: 'Poniya grade Lachkari rice with lighter, softer grain characteristics.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Poniya Grade', 'Soft Grain', 'Light Texture'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'lachkari-vatla', name: 'Lachkari Vatla', category: 'Vatla', description: 'Vatla grade Lachkari rice for everyday and commercial cooking needs.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Vatla Grade', 'Commercial Use', 'Economical'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+
+  // Kasturi
+  { id: 'kasturi-rice', name: 'Kasturi Rice', category: 'Kasturi', description: 'Aromatic Kasturi rice with long grains and rich fragrance. A premium choice for special occasions.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Long Grain', 'Rich Aroma', 'Premium Quality'], image: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+
+  // Wheat
+  { id: 'mp-sharbati-wheat', name: 'MP Sharbati Wheat', category: 'Wheat', description: 'Premium MP Sharbati wheat known for golden color and superior flour quality.', qualityGrade: 'AAA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Golden Color', 'High Protein', 'Superior Flour'], image: 'https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'bhaliya-wheat', name: 'Bhaliya Wheat', category: 'Wheat', description: 'Gujarat\'s own Bhaliya wheat variety, ideal for chapati and rotla.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Gujarat Origin', 'Chapati Wheat', 'Pure & Natural'], image: 'https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+
+  // Pearl Millet
+  { id: 'green-gold-bajri', name: 'Green Gold Bajri', category: 'White Pearl', description: 'Nutritious Green Gold Pearl Millet (Bajri) processed with care. Traditional Gujarati staple grain.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'High Nutrition', 'Traditional Grain', 'Pure & Natural'], image: 'https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
 ];
 
 module.exports = { products };
