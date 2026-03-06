@@ -53,6 +53,11 @@ async function ensureHeaders(spreadsheetId, sheetName, headers) {
       spreadsheetId,
       range: `'${sheetName}'!A1:Z1`,
     });
+    const firstCell = existing.data.values?.[0]?.[0] || '';
+    if (firstCell === headers[0]) {
+      headersWritten.add(sheetName);
+      return;
+    }
     if (!existing.data.values || existing.data.values.length === 0) {
       await sheets.spreadsheets.values.update({
         spreadsheetId,
@@ -60,6 +65,28 @@ async function ensureHeaders(spreadsheetId, sheetName, headers) {
         valueInputOption: 'USER_ENTERED',
         requestBody: { values: [headers] },
       });
+    } else {
+      const meta = await sheets.spreadsheets.get({ spreadsheetId, fields: 'sheets.properties' });
+      const sheet = meta.data.sheets.find(s => s.properties.title === sheetName);
+      if (sheet) {
+        await sheets.spreadsheets.batchUpdate({
+          spreadsheetId,
+          requestBody: {
+            requests: [{
+              insertDimension: {
+                range: { sheetId: sheet.properties.sheetId, dimension: 'ROWS', startIndex: 0, endIndex: 1 },
+                inheritFromBefore: false,
+              },
+            }],
+          },
+        });
+        await sheets.spreadsheets.values.update({
+          spreadsheetId,
+          range: `'${sheetName}'!A1`,
+          valueInputOption: 'USER_ENTERED',
+          requestBody: { values: [headers] },
+        });
+      }
     }
     headersWritten.add(sheetName);
   } catch (e) {
