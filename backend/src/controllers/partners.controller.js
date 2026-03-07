@@ -16,10 +16,12 @@ async function submitPartnerLead(req, res, next) {
       name,
       phone,
       email,
-      message,
-      city,
-      pincode,
-      products
+      message: {
+        city,
+        pincode,
+        products,
+        message
+      }
     });
 
     res.status(201).json({ message: 'Partner request submitted successfully.' });
