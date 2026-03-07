@@ -146,8 +146,8 @@ export default function Partners() {
                 </div>
 
                 {/* Multi-select Products */}
-                <div className={`product-multiselect-row`} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                  <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`} style={{ flex: '0 0 auto' }}>
+                <div className="product-multiselect-row" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                  <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`} style={{ flex: '0 0 auto', position: 'relative' }}>
                     <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
                       <span>
                         {form.products.length > 0
@@ -156,6 +156,20 @@ export default function Partners() {
                       </span>
                       <FaChevronDown className="pms-chevron" />
                     </button>
+                    {dropdownOpen && (
+                      <div className="product-multiselect-menu product-multiselect-menu--side">
+                        {productList.map((name) => (
+                          <label key={name} className="pms-option">
+                            <input
+                              type="checkbox"
+                              checked={form.products.includes(name)}
+                              onChange={() => toggleProduct(name)}
+                            />
+                            <span>{name}</span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
                     {form.products.length > 0 && (
                       <div className="pms-selected-tags">
                         {form.products.map((name) => (
@@ -166,20 +180,6 @@ export default function Partners() {
                       </div>
                     )}
                   </div>
-                  {dropdownOpen && (
-                    <div className="product-multiselect-menu product-multiselect-menu--side">
-                      {productList.map((name) => (
-                        <label key={name} className="pms-option">
-                          <input
-                            type="checkbox"
-                            checked={form.products.includes(name)}
-                            onChange={() => toggleProduct(name)}
-                          />
-                          <span>{name}</span>
-                        </label>
-                      ))}
-                    </div>
-                  )}
                 </div>
                   {dropdownOpen && (
                     <div className="form-after-dropdown">
