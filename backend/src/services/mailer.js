@@ -38,11 +38,14 @@ async function sendNotification({ type, name, phone, email, message }) {
         <table style="width:100%;border-collapse:collapse">
           <tr><td style="padding:8px 0;font-weight:bold;color:#555;width:100px">Name</td><td style="padding:8px 0">${name}</td></tr>
           <tr><td style="padding:8px 0;font-weight:bold;color:#555">Phone</td><td style="padding:8px 0"><a href="tel:${phone}">${phone}</a></td></tr>
-          <tr><td style="padding:8px 0;font-weight:bold;color:#555">Email</td><td style="padding:8px 0"><a href="mailto:${email}">${email}</a></td></tr>
+          <tr><td style="padding:8px 0;font-weight:bold;color:#555">Email</td><td style="padding:8px 0;word-break:break-word;max-width:220px"><a href="mailto:${email}">${email}</a></td></tr>
+          <tr><td colspan="2" style="height:12px"></td></tr>
           <tr><td style="padding:8px 0;font-weight:bold;color:#555">City</td><td style="padding:8px 0;word-break:break-word;max-width:220px">${message.city || '-'}</td></tr>
           <tr><td style="padding:8px 0;font-weight:bold;color:#555">Pincode</td><td style="padding:8px 0;word-break:break-word;max-width:220px">${message.pincode || '-'}</td></tr>
           <tr><td style="padding:8px 0;font-weight:bold;color:#555">Products</td><td style="padding:8px 0;word-break:break-word;white-space:pre-line;max-width:220px">${Array.isArray(message.products) ? message.products.join(', ') : message.products || '-'}</td></tr>
+          <tr><td colspan="2" style="height:12px"></td></tr>
           <tr><td style="padding:8px 0;font-weight:bold;color:#555;vertical-align:top">Message</td><td style="padding:8px 0;word-break:break-word;white-space:pre-line;max-width:220px">${message.message ? message.message.replace(/\n/g, '<br>') : '-'}</td></tr>
+          <tr><td colspan="2" style="height:12px"></td></tr>
         </table>
       </div>
       <div style="background:#f5f5f5;padding:12px 20px;font-size:12px;color:#999;text-align:center">
