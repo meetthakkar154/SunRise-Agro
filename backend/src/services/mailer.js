@@ -39,7 +39,10 @@ async function sendNotification({ type, name, phone, email, message }) {
           <tr><td style="padding:8px 0;font-weight:bold;color:#555;width:100px">Name</td><td style="padding:8px 0">${name}</td></tr>
           <tr><td style="padding:8px 0;font-weight:bold;color:#555">Phone</td><td style="padding:8px 0"><a href="tel:${phone}">${phone}</a></td></tr>
           <tr><td style="padding:8px 0;font-weight:bold;color:#555">Email</td><td style="padding:8px 0"><a href="mailto:${email}">${email}</a></td></tr>
-          <tr><td style="padding:8px 0;font-weight:bold;color:#555;vertical-align:top">Message</td><td style="padding:8px 0">${message}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:bold;color:#555">City</td><td style="padding:8px 0">${message.city || '-'}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:bold;color:#555">Pincode</td><td style="padding:8px 0">${message.pincode || '-'}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:bold;color:#555">Products</td><td style="padding:8px 0">${message.products || '-'}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:bold;color:#555;vertical-align:top">Message</td><td style="padding:8px 0">${message.message ? message.message.replace(/\n/g, '<br>') : ''}</td></tr>
         </table>
       </div>
       <div style="background:#f5f5f5;padding:12px 20px;font-size:12px;color:#999;text-align:center">

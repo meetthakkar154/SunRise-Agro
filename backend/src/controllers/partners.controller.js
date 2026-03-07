@@ -11,8 +11,16 @@ async function submitPartnerLead(req, res, next) {
       await appendToSheet('Customer Requests', [timestamp, name, phone, email, city || '', pincode || '', products || '', message], headers);
 
     // Send email notification
-    const fullMessage = `City: ${city || '-'}, Pincode: ${pincode || '-'}\nProducts: ${products || '-'}\n\n${message}`;
-    await sendNotification({ type: 'partner', name, phone, email, message: fullMessage });
+    await sendNotification({
+      type: 'partner',
+      name,
+      phone,
+      email,
+      message,
+      city,
+      pincode,
+      products
+    });
 
     res.status(201).json({ message: 'Partner request submitted successfully.' });
   } catch (error) {
