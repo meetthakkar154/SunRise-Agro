@@ -178,21 +178,40 @@ export default function Partners() {
                       ))}
                     </div>
                   )}
+                  {dropdownOpen && (
+                    <div className="form-after-dropdown">
+                      {fieldErrors.products && <span className="field-error" style={{ marginTop: '-0.5rem' }}>{fieldErrors.products}</span>}
+                      <div className="form-field">
+                        <textarea name="message" placeholder={t('partners.formMessage')} value={form.message} onChange={handleChange} />
+                        {fieldErrors.message && <span className="field-error">{fieldErrors.message}</span>}
+                      </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <button type="submit" className="btn btn-primary" disabled={loading}>
+                          {loading ? <span className="spinner" /> : t('partners.formSubmit')}
+                        </button>
+                      </div>
+                      {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ {t('partners.submitted') || 'Submitted!'}</p>}
+                      {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
+                    </div>
+                  )}
                 </div>
 
-                {fieldErrors.products && <span className="field-error" style={{ marginTop: '-0.5rem' }}>{fieldErrors.products}</span>}
-
-                <div className="form-field">
-                  <textarea name="message" placeholder={t('partners.formMessage')} value={form.message} onChange={handleChange} />
-                  {fieldErrors.message && <span className="field-error">{fieldErrors.message}</span>}
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <button type="submit" className="btn btn-primary" disabled={loading}>
-                    {loading ? <span className="spinner" /> : t('partners.formSubmit')}
-                  </button>
-                </div>
-                {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ {t('partners.submitted') || 'Submitted!'}</p>}
-                {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
+                {!dropdownOpen && (
+                  <>
+                    {fieldErrors.products && <span className="field-error" style={{ marginTop: '-0.5rem' }}>{fieldErrors.products}</span>}
+                    <div className="form-field">
+                      <textarea name="message" placeholder={t('partners.formMessage')} value={form.message} onChange={handleChange} />
+                      {fieldErrors.message && <span className="field-error">{fieldErrors.message}</span>}
+                    </div>
+                    <div style={{ textAlign: 'center' }}>
+                      <button type="submit" className="btn btn-primary" disabled={loading}>
+                        {loading ? <span className="spinner" /> : t('partners.formSubmit')}
+                      </button>
+                    </div>
+                    {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ {t('partners.submitted') || 'Submitted!'}</p>}
+                    {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
+                  </>
+                )}
               </form>
             )}
           </motion.div>
