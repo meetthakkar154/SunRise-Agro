@@ -146,15 +146,26 @@ export default function Partners() {
                 </div>
 
                 {/* Multi-select Products */}
-                <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`}>
-                  <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
-                    <span>
-                      {form.products.length > 0
-                        ? `${form.products.length} ${t('partners.productsSelected')}`
-                        : t('partners.formProducts')}
-                    </span>
-                    <FaChevronDown className="pms-chevron" />
-                  </button>
+                <div className={`product-multiselect-row`} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                  <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`} style={{ flex: '0 0 auto' }}>
+                    <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                      <span>
+                        {form.products.length > 0
+                          ? `${form.products.length} ${t('partners.productsSelected')}`
+                          : t('partners.formProducts')}
+                      </span>
+                      <FaChevronDown className="pms-chevron" />
+                    </button>
+                    {form.products.length > 0 && (
+                      <div className="pms-selected-tags">
+                        {form.products.map((name) => (
+                          <span key={name} className="pms-tag" onClick={() => toggleProduct(name)}>
+                            {name} ×
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                   {dropdownOpen && (
                     <div className="product-multiselect-menu product-multiselect-menu--side">
                       {productList.map((name) => (
@@ -169,15 +180,7 @@ export default function Partners() {
                       ))}
                     </div>
                   )}
-                  {form.products.length > 0 && (
-                    <div className="pms-selected-tags">
-                      {form.products.map((name) => (
-                        <span key={name} className="pms-tag" onClick={() => toggleProduct(name)}>
-                          {name} ×
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                </div>
                   {dropdownOpen && (
                     <div className="form-after-dropdown">
                       {fieldErrors.products && <span className="field-error" style={{ marginTop: '-0.5rem' }}>{fieldErrors.products}</span>}
