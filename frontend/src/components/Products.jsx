@@ -135,25 +135,23 @@ export default function Products() {
         <h2 className="section-title">{t('products.title')}</h2>
         <p className="section-subtitle">{t('products.subtitle')}</p>
 
-        {/* Show filter tabs only when expanded */}
-        {showAll && (
-          <motion.div
-            className="products-filter"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`products-filter-btn${activeCategory === cat ? ' active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat === 'All' ? t('products.allProducts') : t(`products.cat.${cat}`, { defaultValue: cat })}
-              </button>
-            ))}
-          </motion.div>
-        )}
+        {/* Category filter tabs always visible */}
+        <motion.div
+          className="products-filter"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`products-filter-btn${activeCategory === cat ? ' active' : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat === 'All' ? t('products.allProducts') : t(`products.cat.${cat}`, { defaultValue: cat })}
+            </button>
+          ))}
+        </motion.div>
 
         <div className="products-grid-v2" ref={ref}>
           <AnimatePresence mode="popLayout">
