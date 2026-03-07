@@ -156,7 +156,7 @@ export default function Partners() {
                     <FaChevronDown className="pms-chevron" />
                   </button>
                   {dropdownOpen && (
-                    <div className="product-multiselect-menu">
+                    <div className="product-multiselect-menu product-multiselect-menu--up">
                       {productList.map((name) => (
                         <label key={name} className="pms-option">
                           <input
