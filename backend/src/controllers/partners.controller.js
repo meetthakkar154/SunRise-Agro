@@ -8,7 +8,7 @@ async function submitPartnerLead(req, res, next) {
 
     // Save to Google Sheet
     const headers = ['Timestamp', 'Name', 'Phone', 'Email', 'City', 'Pincode', 'Products', 'Message'];
-    await appendToSheet('Partner Requests', [timestamp, name, phone, email, city || '', pincode || '', products || '', message], headers);
+      await appendToSheet('Customer Request', [timestamp, name, phone, email, city || '', pincode || '', products || '', message], headers);
 
     // Send email notification
     const fullMessage = `City: ${city || '-'}, Pincode: ${pincode || '-'}\nProducts: ${products || '-'}\n\n${message}`;
