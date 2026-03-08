@@ -191,15 +191,6 @@ export default function Partners() {
                 </div>
                 {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ {t('partners.submitted') || 'Submitted!'}</p>}
                 {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
-                {form.products.length > 0 && (
-                  <div className="pms-selected-tags">
-                    {form.products.map((name) => (
-                      <span key={name} className="pms-tag" onClick={() => toggleProduct(name)}>
-                        {name} ×
-                      </span>
-                    ))}
-                  </div>
-                )}
 
                 {fieldErrors.products && <span className="field-error" style={{ marginTop: '-0.5rem' }}>{fieldErrors.products}</span>}
 
