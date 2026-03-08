@@ -146,15 +146,17 @@ export default function Partners() {
                 </div>
 
                 {/* Multi-select Products */}
-                <div className="product-multiselect" style={{ position: 'relative' }}>
-                  <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
-                    <span>
-                      {form.products.length > 0
-                        ? `${form.products.length} ${t('partners.productsSelected')}`
-                        : t('partners.formProducts')}
-                    </span>
-                    <FaChevronDown className="pms-chevron" />
-                  </button>
+                <div className="product-multiselect-row" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                  <div className="product-multiselect" style={{ position: 'relative', flex: '0 0 auto' }}>
+                    <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                      <span>
+                        {form.products.length > 0
+                          ? `${form.products.length} ${t('partners.productsSelected')}`
+                          : t('partners.formProducts')}
+                      </span>
+                      <FaChevronDown className="pms-chevron" />
+                    </button>
+                  </div>
                   {dropdownOpen && (
                     <div className="product-multiselect-menu product-multiselect-menu--side">
                       {productList.map((name) => (
