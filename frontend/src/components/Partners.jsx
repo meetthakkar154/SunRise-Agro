@@ -146,7 +146,7 @@ export default function Partners() {
                 </div>
 
                 {/* Multi-select Products */}
-                <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`}>
+                <div className="product-multiselect" style={{ position: 'relative' }}>
                   <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
                     <span>
                       {form.products.length > 0
@@ -156,7 +156,7 @@ export default function Partners() {
                     <FaChevronDown className="pms-chevron" />
                   </button>
                   {dropdownOpen && (
-                    <div className="product-multiselect-menu">
+                    <div className="product-multiselect-menu product-multiselect-menu--side">
                       {productList.map((name) => (
                         <label key={name} className="pms-option">
                           <input
@@ -169,16 +169,16 @@ export default function Partners() {
                       ))}
                     </div>
                   )}
-                  {form.products.length > 0 && (
-                    <div className="pms-selected-tags">
-                      {form.products.map((name) => (
-                        <span key={name} className="pms-tag" onClick={() => toggleProduct(name)}>
-                          {name} ×
-                        </span>
-                      ))}
-                    </div>
-                  )}
                 </div>
+                {form.products.length > 0 && (
+                  <div className="pms-selected-tags">
+                    {form.products.map((name) => (
+                      <span key={name} className="pms-tag" onClick={() => toggleProduct(name)}>
+                        {name} ×
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {fieldErrors.products && <span className="field-error" style={{ marginTop: '-0.5rem' }}>{fieldErrors.products}</span>}
 
