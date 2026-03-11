@@ -10,33 +10,42 @@ const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export default function Contact() {
   const { t } = useTranslation();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: .2 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
   const [form, setForm] = useState({ name: '', countryCode: '+91', phone: '', email: '', city: '', pincode: '', message: '' });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({});
+  const [error, setError] = useState('');
 
-  // Dynamically set phone maxLength based on country
   const getPhoneMaxLength = (code) => phoneLengths[code] || 10;
 
   const handleChange = (e) => {
-    // Prevent entering more digits than allowed for phone
-    if (e.target.name === 'phone') {
-      const maxLen = getPhoneMaxLength(form.countryCode);
-      if (e.target.value.length > maxLen) return;
-    }
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    const { name, value } = e.target;
 
-  const [error, setError] = useState('');
+    if (name === 'phone') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, getPhoneMaxLength(form.countryCode));
+      setForm({ ...form, phone: digitsOnly });
+      return;
+    }
+
+    if (name === 'pincode') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 6);
+      setForm({ ...form, pincode: digitsOnly });
+      return;
+    }
+
+    setForm({ ...form, [name]: value });
+  };
 
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) errs.name = t('contact.validation.name');
     if (!form.countryCode) errs.countryCode = 'Country code required';
+
     const phoneLen = getPhoneMaxLength(form.countryCode);
     const phoneRegex = new RegExp(`^[0-9]{${phoneLen}}$`);
-    if (!phoneRegex.test(form.phone.trim())) errs.phone = t('contact.validation.phone') + ` (${phoneLen} digits required)`;
+    if (!phoneRegex.test(form.phone.trim())) errs.phone = `${t('contact.validation.phone')} (${phoneLen} digits required)`;
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = t('contact.validation.email');
     if (!form.city.trim()) errs.city = t('contact.validation.city');
     if (!/^[0-9]{6}$/.test(form.pincode.trim())) errs.pincode = t('contact.validation.pincode');
@@ -46,9 +55,11 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
     const errs = validate();
     setFieldErrors(errs);
     if (Object.keys(errs).length > 0) return;
+
     setLoading(true);
     try {
       const res = await fetch(`${API}/contact`, {
@@ -56,11 +67,13 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
+
       if (!res.ok) {
         const data = await res.json().catch(() => null);
         setError(data?.errors?.[0]?.msg || 'Something went wrong');
         return;
       }
+
       setSent(true);
       setForm({ name: '', countryCode: '+91', phone: '', email: '', city: '', pincode: '', message: '' });
       setFieldErrors({});
@@ -81,7 +94,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: .6 }}
+            transition={{ duration: 0.6 }}
           >
             <div className="contact-info-item">
               <span className="contact-icon"><FaMapMarkerAlt /></span>
@@ -120,7 +133,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: .6, delay: .2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <form className="form" onSubmit={handleSubmit}>
               <div className="form-field">
@@ -152,6 +165,8 @@ export default function Contact() {
                   </select>
                   <input
                     name="phone"
+                    type="tel"
+                    inputMode="numeric"
                     placeholder={t('contact.formPhone')}
                     value={form.phone}
                     onChange={handleChange}
@@ -181,7 +196,7 @@ export default function Contact() {
                   {fieldErrors.city && <span className="field-error">{fieldErrors.city}</span>}
                 </div>
                 <div className="form-field">
-                  <input name="pincode" placeholder={t('contact.formPincode')} value={form.pincode} onChange={handleChange} maxLength={6} />
+                  <input name="pincode" inputMode="numeric" placeholder={t('contact.formPincode')} value={form.pincode} onChange={handleChange} maxLength={6} />
                   {fieldErrors.pincode && <span className="field-error">{fieldErrors.pincode}</span>}
                 </div>
               </div>

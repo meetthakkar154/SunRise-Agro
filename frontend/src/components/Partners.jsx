@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import countryCodes from '../i18n/countryCodes.json';
+import phoneLengths from '../constants/phoneLengths';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -19,14 +20,15 @@ const productList = [
 
 export default function Partners() {
   const { t } = useTranslation();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: .2 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
   const [form, setForm] = useState({ name: '', countryCode: '+91', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
 
-  /* Listen for product quote requests from ProductCard */
   useEffect(() => {
     const handler = (e) => {
       const productName = e.detail;
@@ -36,29 +38,49 @@ export default function Partners() {
         products: prev.products.includes(productName) ? prev.products : [...prev.products, productName],
       }));
     };
+
     window.addEventListener('requestQuote', handler);
     return () => window.removeEventListener('requestQuote', handler);
   }, []);
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const getPhoneMaxLength = (code) => phoneLengths[code] || 10;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === 'phone') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, getPhoneMaxLength(form.countryCode));
+      setForm({ ...form, phone: digitsOnly });
+      return;
+    }
+
+    if (name === 'pincode') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 6);
+      setForm({ ...form, pincode: digitsOnly });
+      return;
+    }
+
+    setForm({ ...form, [name]: value });
+  };
 
   const toggleProduct = (name) => {
     setForm((prev) => ({
       ...prev,
       products: prev.products.includes(name)
-        ? prev.products.filter((p) => p !== name)
+        ? prev.products.filter((product) => product !== name)
         : [...prev.products, name],
     }));
   };
-
-  const [error, setError] = useState('');
-  const [fieldErrors, setFieldErrors] = useState({});
 
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) errs.name = t('partners.validation.name');
     if (!form.countryCode) errs.countryCode = 'Country code required';
-    if (!/^[0-9]{10}$/.test(form.phone.trim())) errs.phone = t('partners.validation.phone');
+
+    const phoneLen = getPhoneMaxLength(form.countryCode);
+    const phoneRegex = new RegExp(`^[0-9]{${phoneLen}}$`);
+    if (!phoneRegex.test(form.phone.trim())) errs.phone = `${t('partners.validation.phone')} (${phoneLen} digits required)`;
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = t('partners.validation.email');
     if (!form.city.trim()) errs.city = t('partners.validation.city');
     if (!/^[0-9]{6}$/.test(form.pincode.trim())) errs.pincode = t('partners.validation.pincode');
@@ -69,9 +91,11 @@ export default function Partners() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
     const errs = validate();
     setFieldErrors(errs);
     if (Object.keys(errs).length > 0) return;
+
     setLoading(true);
     try {
       const res = await fetch(`${API}/partners`, {
@@ -79,11 +103,13 @@ export default function Partners() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, products: form.products.join(', ') }),
       });
+
       if (!res.ok) {
         const data = await res.json().catch(() => null);
         setError(data?.errors?.[0]?.msg || 'Something went wrong');
         return;
       }
+
       setSent(true);
       setForm({ name: '', countryCode: '+91', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
       setFieldErrors({});
@@ -105,7 +131,7 @@ export default function Partners() {
             className="partner-text"
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: .6 }}
+            transition={{ duration: 0.6 }}
           >
             <FaHandshake style={{ fontSize: '3rem', color: 'var(--primary)', marginBottom: '1rem' }} />
             <p>{t('partners.text')}</p>
@@ -118,7 +144,7 @@ export default function Partners() {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: .6, delay: .2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             {showForm && (
               <form className="form" onSubmit={handleSubmit}>
@@ -150,10 +176,12 @@ export default function Partners() {
                     </select>
                     <input
                       name="phone"
+                      type="tel"
+                      inputMode="numeric"
                       placeholder={t('partners.formPhone')}
                       value={form.phone}
                       onChange={handleChange}
-                      maxLength={10}
+                      maxLength={getPhoneMaxLength(form.countryCode)}
                       style={{
                         border: '1px solid #e0e0e0',
                         borderRadius: '12px',
@@ -174,19 +202,17 @@ export default function Partners() {
                   {fieldErrors.email && <span className="field-error">{fieldErrors.email}</span>}
                 </div>
 
-                {/* City & Pincode row */}
                 <div className="form-row">
                   <div className="form-field">
                     <input name="city" placeholder={t('partners.formCity')} value={form.city} onChange={handleChange} />
                     {fieldErrors.city && <span className="field-error">{fieldErrors.city}</span>}
                   </div>
                   <div className="form-field">
-                    <input name="pincode" placeholder={t('partners.formPincode')} value={form.pincode} onChange={handleChange} maxLength={6} />
+                    <input name="pincode" inputMode="numeric" placeholder={t('partners.formPincode')} value={form.pincode} onChange={handleChange} maxLength={6} />
                     {fieldErrors.pincode && <span className="field-error">{fieldErrors.pincode}</span>}
                   </div>
                 </div>
 
-                {/* Multi-select Products */}
                 <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`}>
                   <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
                     <span>
@@ -214,7 +240,7 @@ export default function Partners() {
                     <div className="pms-selected-tags">
                       {form.products.map((name) => (
                         <span key={name} className="pms-tag" onClick={() => toggleProduct(name)}>
-                          {name} ×
+                          {name} x
                         </span>
                       ))}
                     </div>
@@ -232,7 +258,7 @@ export default function Partners() {
                     {loading ? <span className="spinner" /> : t('partners.formSubmit')}
                   </button>
                 </div>
-                {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>✓ {t('partners.submitted') || 'Submitted!'}</p>}
+                {sent && <p style={{ color: 'var(--primary)', fontWeight: 600 }}>Success: {t('partners.submitted') || 'Submitted!'}</p>}
                 {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
               </form>
             )}
