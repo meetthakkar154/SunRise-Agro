@@ -8,21 +8,10 @@ async function submitContact(req, res, next) {
     const fullPhone = `${countryCode} ${phone}`;
 
     // Save to Google Sheet
-    const headers = ['Timestamp', 'Name', 'Country Code', 'Phone', 'Full Phone', 'Email', 'City', 'Pincode', 'Message'];
-    await appendToSheet('Contact Inquiries', [timestamp, name, countryCode, phone, fullPhone, email, city || '', pincode || '', message || ''], headers);
+    const headers = ['Timestamp', 'Name', 'Phone', 'Email', 'City', 'Pincode', 'Message'];
+    await appendToSheet('Contact Inquiries', [timestamp, name, fullPhone, email, city || '', pincode || '', message || ''], headers);
 
     // Send email notification
-    console.log('Contact email payload:', {
-      type: 'contact',
-      name,
-      countryCode,
-      phone: fullPhone,
-      email,
-      city: city || '-',
-      pincode: pincode || '-',
-      message: message || '-',
-    });
-
     await sendNotification({
       type: 'contact',
       name,
