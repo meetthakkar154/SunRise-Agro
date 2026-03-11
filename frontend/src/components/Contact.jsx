@@ -48,7 +48,7 @@ export default function Contact() {
         return;
       }
       setSent(true);
-      setForm({ name: '', phone: '', email: '', city: '', pincode: '', message: '' });
+      setForm({ name: '', countryCode: '+91', phone: '', email: '', city: '', pincode: '', message: '' });
       setFieldErrors({});
       setTimeout(() => setSent(false), 4000);
     } catch {
