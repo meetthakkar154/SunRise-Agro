@@ -11,8 +11,17 @@ async function submitContact(req, res, next) {
     await appendToSheet('Contact Inquiries', [timestamp, name, phone, email, city || '', pincode || '', message], headers);
 
     // Send email notification
-    const fullMessage = `City: ${city || '-'}, Pincode: ${pincode || '-'}\n\n${message}`;
-    await sendNotification({ type: 'contact', name, phone, email, message: fullMessage });
+    await sendNotification({
+      type: 'contact',
+      name,
+      phone,
+      email,
+      message: {
+        city: city || '-',
+        pincode: pincode || '-',
+        message: message || '-',
+      }
+    });
 
     res.status(201).json({ message: 'Message received successfully.' });
   } catch (error) {

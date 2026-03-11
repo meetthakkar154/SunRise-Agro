@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import countryCodes from '../i18n/countryCodes.json';
+import phoneLengths from '../constants/phoneLengths';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -15,7 +16,17 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({});
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  // Dynamically set phone maxLength based on country
+  const getPhoneMaxLength = (code) => phoneLengths[code] || 10;
+
+  const handleChange = (e) => {
+    // Prevent entering more digits than allowed for phone
+    if (e.target.name === 'phone') {
+      const maxLen = getPhoneMaxLength(form.countryCode);
+      if (e.target.value.length > maxLen) return;
+    }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const [error, setError] = useState('');
 
@@ -23,7 +34,9 @@ export default function Contact() {
     const errs = {};
     if (!form.name.trim()) errs.name = t('contact.validation.name');
     if (!form.countryCode) errs.countryCode = 'Country code required';
-    if (!/^[0-9]{10}$/.test(form.phone.trim())) errs.phone = t('contact.validation.phone');
+    const phoneLen = getPhoneMaxLength(form.countryCode);
+    const phoneRegex = new RegExp(`^[0-9]{${phoneLen}}$`);
+    if (!phoneRegex.test(form.phone.trim())) errs.phone = t('contact.validation.phone') + ` (${phoneLen} digits required)`;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = t('contact.validation.email');
     if (!form.city.trim()) errs.city = t('contact.validation.city');
     if (!/^[0-9]{6}$/.test(form.pincode.trim())) errs.pincode = t('contact.validation.pincode');
@@ -125,10 +138,10 @@ export default function Contact() {
                       borderRadius: '12px',
                       padding: '0 12px',
                       height: '48px',
-                      width: '100px',
+                      width: '130px',
                       fontSize: '16px',
                       marginRight: '10px',
-                      minWidth: '125px',
+                      minWidth: '200px',
                       background: '#fff',
                       outline: 'none',
                     }}
@@ -142,7 +155,7 @@ export default function Contact() {
                     placeholder={t('contact.formPhone')}
                     value={form.phone}
                     onChange={handleChange}
-                    maxLength={10}
+                    maxLength={getPhoneMaxLength(form.countryCode)}
                     style={{
                       border: '1px solid #e0e0e0',
                       borderRadius: '12px',
