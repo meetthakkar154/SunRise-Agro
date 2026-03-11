@@ -127,13 +127,22 @@ export default function Partners() {
                   {fieldErrors.name && <span className="field-error">{fieldErrors.name}</span>}
                 </div>
                 <div className="form-field" style={{ display: 'flex', gap: '8px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                  <div style={{ display: 'flex', width: '100%' }}>
                     <select
                       name="countryCode"
-                      value={form.countryCode || '+91'}
+                      value={form.countryCode}
                       onChange={handleChange}
-                      className="input"
-                      style={{ width: '130px', marginRight: '8px', height: '40px', borderRadius: '6px', border: '1px solid #ccc', fontSize: '1rem' }}
+                      style={{
+                        border: '1px solid #e0e0e0',
+                        borderRadius: '12px',
+                        padding: '0 12px',
+                        height: '48px',
+                        fontSize: '16px',
+                        marginRight: '8px',
+                        minWidth: '140px',
+                        background: '#fff',
+                        outline: 'none',
+                      }}
                     >
                       {countryCodes.map((c) => (
                         <option key={c.code} value={c.code}>{c.name} ({c.code})</option>
@@ -145,8 +154,16 @@ export default function Partners() {
                       value={form.phone}
                       onChange={handleChange}
                       maxLength={10}
-                      className="input"
-                      style={{ flex: 1, height: '40px', borderRadius: '6px', border: '1px solid #ccc', fontSize: '1rem' }}
+                      style={{
+                        border: '1px solid #e0e0e0',
+                        borderRadius: '12px',
+                        padding: '0 12px',
+                        height: '48px',
+                        fontSize: '16px',
+                        flex: 1,
+                        background: '#fff',
+                        outline: 'none',
+                      }}
                     />
                   </div>
                   {fieldErrors.countryCode && <span className="field-error">{fieldErrors.countryCode}</span>}
