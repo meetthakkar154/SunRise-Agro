@@ -9,7 +9,7 @@ const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 export default function Contact() {
   const { t } = useTranslation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: .2 });
-  const [form, setForm] = useState({ name: '', phone: '', email: '', city: '', pincode: '', message: '' });
+  const [form, setForm] = useState({ name: '', countryCode: '+91', phone: '', email: '', city: '', pincode: '', message: '' });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({});
@@ -21,6 +21,7 @@ export default function Contact() {
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) errs.name = t('contact.validation.name');
+    if (!form.countryCode) errs.countryCode = 'Country code required';
     if (!/^[0-9]{10}$/.test(form.phone.trim())) errs.phone = t('contact.validation.phone');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = t('contact.validation.email');
     if (!form.city.trim()) errs.city = t('contact.validation.city');
@@ -112,8 +113,14 @@ export default function Contact() {
                 <input name="name" placeholder={t('contact.formName')} value={form.name} onChange={handleChange} />
                 {fieldErrors.name && <span className="field-error">{fieldErrors.name}</span>}
               </div>
-              <div className="form-field">
-                <input name="phone" placeholder={t('contact.formPhone')} value={form.phone} onChange={handleChange} maxLength={10} />
+              <div className="form-field" style={{ display: 'flex', gap: '8px' }}>
+                <select name="countryCode" value={form.countryCode} onChange={handleChange} style={{ width: '110px' }}>
+                  {require('../i18n/countryCodes.json').map((c) => (
+                    <option key={c.code} value={c.code}>{c.name} ({c.code})</option>
+                  ))}
+                </select>
+                <input name="phone" placeholder={t('contact.formPhone')} value={form.phone} onChange={handleChange} maxLength={10} style={{ flex: 1 }} />
+                {fieldErrors.countryCode && <span className="field-error">{fieldErrors.countryCode}</span>}
                 {fieldErrors.phone && <span className="field-error">{fieldErrors.phone}</span>}
               </div>
               <div className="form-field">

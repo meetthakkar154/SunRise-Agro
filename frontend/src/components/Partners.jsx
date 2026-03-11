@@ -19,7 +19,7 @@ const productList = [
 export default function Partners() {
   const { t } = useTranslation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: .2 });
-  const [form, setForm] = useState({ name: '', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
+  const [form, setForm] = useState({ name: '', countryCode: '+91', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -56,6 +56,7 @@ export default function Partners() {
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) errs.name = t('partners.validation.name');
+    if (!form.countryCode) errs.countryCode = 'Country code required';
     if (!/^[0-9]{10}$/.test(form.phone.trim())) errs.phone = t('partners.validation.phone');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = t('partners.validation.email');
     if (!form.city.trim()) errs.city = t('partners.validation.city');
@@ -83,7 +84,7 @@ export default function Partners() {
         return;
       }
       setSent(true);
-      setForm({ name: '', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
+      setForm({ name: '', countryCode: '+91', phone: '', email: '', city: '', pincode: '', products: [], message: '' });
       setFieldErrors({});
       setTimeout(() => setSent(false), 4000);
     } catch {
@@ -124,8 +125,14 @@ export default function Partners() {
                   <input name="name" placeholder={t('partners.formName')} value={form.name} onChange={handleChange} />
                   {fieldErrors.name && <span className="field-error">{fieldErrors.name}</span>}
                 </div>
-                <div className="form-field">
-                  <input name="phone" placeholder={t('partners.formPhone')} value={form.phone} onChange={handleChange} maxLength={10} />
+                <div className="form-field" style={{ display: 'flex', gap: '8px' }}>
+                  <select name="countryCode" value={form.countryCode} onChange={handleChange} style={{ width: '110px' }}>
+                    {require('../i18n/countryCodes.json').map((c) => (
+                      <option key={c.code} value={c.code}>{c.name} ({c.code})</option>
+                    ))}
+                  </select>
+                  <input name="phone" placeholder={t('partners.formPhone')} value={form.phone} onChange={handleChange} maxLength={10} style={{ flex: 1 }} />
+                  {fieldErrors.countryCode && <span className="field-error">{fieldErrors.countryCode}</span>}
                   {fieldErrors.phone && <span className="field-error">{fieldErrors.phone}</span>}
                 </div>
                 <div className="form-field">
