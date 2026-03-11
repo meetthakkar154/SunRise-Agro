@@ -222,8 +222,15 @@ export default function Partners() {
                     </span>
                     <FaChevronDown className="pms-chevron" />
                   </button>
+                  {dropdownOpen && <button type="button" className="pms-backdrop" aria-label="Close product selector" onClick={() => setDropdownOpen(false)} />}
                   {dropdownOpen && (
                     <div className="product-multiselect-menu">
+                      <div className="pms-mobile-header">
+                        <strong>{t('partners.formProducts')}</strong>
+                        <button type="button" className="pms-close-btn" onClick={() => setDropdownOpen(false)}>
+                          Done
+                        </button>
+                      </div>
                       {productList.map((name) => (
                         <label key={name} className="pms-option">
                           <input

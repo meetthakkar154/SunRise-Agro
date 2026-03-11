@@ -1062,6 +1062,8 @@ button { cursor: pointer; font-family: inherit; }
   padding: .85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg); color: var(--text-muted); font-size: .95rem; font-family: inherit;
   cursor: pointer; transition: border var(--transition);
+  position: relative;
+  z-index: 2;
 }
 .product-multiselect-toggle:hover,
 .product-multiselect.open .product-multiselect-toggle { border-color: var(--primary); }
@@ -1070,8 +1072,19 @@ button { cursor: pointer; font-family: inherit; }
 .product-multiselect-menu {
   position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 10;
   background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
-  box-shadow: 0 8px 30px rgba(0,0,0,.12); max-height: 220px; overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,.12); max-height: min(220px, 34vh); overflow-y: auto;
   padding: .5rem;
+}
+.pms-backdrop { display: none; }
+.pms-mobile-header { display: none; }
+.pms-close-btn {
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 999px;
+  padding: .45rem .85rem;
+  font-size: .8rem;
+  font-weight: 600;
 }
 .pms-option {
   display: flex; align-items: center; gap: .6rem;
@@ -1090,6 +1103,58 @@ button { cursor: pointer; font-family: inherit; }
   transition: background .2s;
 }
 .pms-tag:hover { background: rgba(46,125,50,.2); }
+
+@media (max-width: 768px) {
+  .pms-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.22);
+    z-index: 9;
+    border: none;
+    padding: 0;
+  }
+
+  .product-multiselect-menu {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    top: auto;
+    max-height: min(50vh, 420px);
+    padding: .75rem;
+    z-index: 11;
+    border-radius: 20px;
+    box-shadow: 0 20px 48px rgba(0,0,0,.24);
+  }
+
+  .pms-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    background: var(--card-bg);
+    padding-bottom: .6rem;
+    margin-bottom: .35rem;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 540px) {
+  .product-multiselect-menu {
+    left: .75rem;
+    right: .75rem;
+    bottom: .75rem;
+    max-height: min(56vh, 460px);
+  }
+
+  .pms-option {
+    padding: .4rem .5rem;
+    font-size: .84rem;
+  }
+}
 
 /* ===== Counters ===== */
 .counters { background: var(--primary); color: #fff; padding: 3.5rem 0; }
