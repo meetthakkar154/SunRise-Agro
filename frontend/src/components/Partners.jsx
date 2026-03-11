@@ -127,12 +127,28 @@ export default function Partners() {
                   {fieldErrors.name && <span className="field-error">{fieldErrors.name}</span>}
                 </div>
                 <div className="form-field" style={{ display: 'flex', gap: '8px' }}>
-                  <select name="countryCode" value={form.countryCode} onChange={handleChange} style={{ width: '110px' }}>
-                    {countryCodes.map((c) => (
-                      <option key={c.code} value={c.code}>{c.name} ({c.code})</option>
-                    ))}
-                  </select>
-                  <input name="phone" placeholder={t('partners.formPhone')} value={form.phone} onChange={handleChange} maxLength={10} style={{ flex: 1 }} />
+                  <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                    <select
+                      name="countryCode"
+                      value={form.countryCode || '+91'}
+                      onChange={handleChange}
+                      className="input"
+                      style={{ width: '130px', marginRight: '8px', height: '40px', borderRadius: '6px', border: '1px solid #ccc', fontSize: '1rem' }}
+                    >
+                      {countryCodes.map((c) => (
+                        <option key={c.code} value={c.code}>{c.name} ({c.code})</option>
+                      ))}
+                    </select>
+                    <input
+                      name="phone"
+                      placeholder={t('partners.formPhone')}
+                      value={form.phone}
+                      onChange={handleChange}
+                      maxLength={10}
+                      className="input"
+                      style={{ flex: 1, height: '40px', borderRadius: '6px', border: '1px solid #ccc', fontSize: '1rem' }}
+                    />
+                  </div>
                   {fieldErrors.countryCode && <span className="field-error">{fieldErrors.countryCode}</span>}
                   {fieldErrors.phone && <span className="field-error">{fieldErrors.phone}</span>}
                 </div>
