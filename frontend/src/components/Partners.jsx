@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaHandshake, FaChevronDown } from 'react-icons/fa';
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API = import.meta.env.VITE_API_URL || '/api';
 
 const productList = [
   'Wadakolam Rice', 'Wadakolam Old Rice', 'Kali Muchh Rice', 'Gujarat-13 Rice',

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaFileAlt } from 'react-icons/fa';
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API = import.meta.env.VITE_API_URL || '/api';
 
 export default function Contact() {
   const { t } = useTranslation();
