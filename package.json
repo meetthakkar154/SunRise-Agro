@@ -16,5 +16,8 @@
   "type": "commonjs",
   "devDependencies": {
     "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "react-phone-input-2": "^2.15.1"
   }
 }
