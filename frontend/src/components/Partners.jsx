@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import countryCodes from '../i18n/countryCodes.json';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -127,7 +128,7 @@ export default function Partners() {
                 </div>
                 <div className="form-field" style={{ display: 'flex', gap: '8px' }}>
                   <select name="countryCode" value={form.countryCode} onChange={handleChange} style={{ width: '110px' }}>
-                    {require('../i18n/countryCodes.json').map((c) => (
+                    {countryCodes.map((c) => (
                       <option key={c.code} value={c.code}>{c.name} ({c.code})</option>
                     ))}
                   </select>
