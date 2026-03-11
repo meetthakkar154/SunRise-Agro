@@ -41,9 +41,9 @@ async function sendNotification({ type, name, phone, email, message }) {
           <tr><td style="padding:8px 0;font-weight:bold;color:#555">Email</td><td style="padding:8px 0;word-break:break-word;max-width:220px"><a href="mailto:${email}">${email}</a></td></tr>
           <tr><td colspan="2" style="height:12px"></td></tr>
           ${type === 'contact' ? `
-            <tr><td style="padding:8px 0;font-weight:bold;color:#555">City</td><td style="padding:8px 0;word-break:break-word;max-width:220px">${message.city || '-'}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:bold;color:#555">Pincode</td><td style="padding:8px 0;word-break:break-word;max-width:220px">${message.pincode || '-'}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:bold;color:#555;vertical-align:top">Message</td><td style="padding:8px 0;word-break:break-word;white-space:pre-line;max-width:220px">${message.message ? message.message.replace(/\n/g, '<br>') : '-'}</td></tr>
+            <tr><td style="padding:8px 0;font-weight:bold;color:#555">City</td><td style="padding:8px 0;word-break:break-word;max-width:220px">${city || '-'}</td></tr>
+            <tr><td style="padding:8px 0;font-weight:bold;color:#555">Pincode</td><td style="padding:8px 0;word-break:break-word;max-width:220px">${pincode || '-'}</td></tr>
+            <tr><td style="padding:8px 0;font-weight:bold;color:#555;vertical-align:top">Message</td><td style="padding:8px 0;word-break:break-word;white-space:pre-line;max-width:220px">${message ? message.replace(/\n/g, '<br>') : '-'}</td></tr>
           ` : ''}
           ${type === 'partner' ? `
             <tr><td style="padding:8px 0;font-weight:bold;color:#555">Products</td><td style="padding:8px 0;word-break:break-word;white-space:pre-line;max-width:220px">${Array.isArray(message.products) ? message.products.join(', ') : message.products || '-'}</td></tr>

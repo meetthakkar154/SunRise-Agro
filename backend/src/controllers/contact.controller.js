@@ -16,11 +16,9 @@ async function submitContact(req, res, next) {
       name,
       phone,
       email,
-      message: {
-        city: city || '-',
-        pincode: pincode || '-',
-        message: message || '-',
-      }
+      city: city || '-',
+      pincode: pincode || '-',
+      message: message || '-',
     });
 
     res.status(201).json({ message: 'Message received successfully.' });
