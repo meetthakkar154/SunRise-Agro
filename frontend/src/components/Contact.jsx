@@ -125,9 +125,10 @@ export default function Contact() {
                       borderRadius: '12px',
                       padding: '0 12px',
                       height: '48px',
+                      width: '100px',
                       fontSize: '16px',
-                      marginRight: '8px',
-                      minWidth: '140px',
+                      marginRight: '10px',
+                      minWidth: '125px',
                       background: '#fff',
                       outline: 'none',
                     }}
