@@ -12,6 +12,17 @@ async function submitContact(req, res, next) {
     await appendToSheet('Contact Inquiries', [timestamp, name, countryCode, phone, fullPhone, email, city || '', pincode || '', message || ''], headers);
 
     // Send email notification
+    console.log('Contact email payload:', {
+      type: 'contact',
+      name,
+      countryCode,
+      phone: fullPhone,
+      email,
+      city: city || '-',
+      pincode: pincode || '-',
+      message: message || '-',
+    });
+
     await sendNotification({
       type: 'contact',
       name,
