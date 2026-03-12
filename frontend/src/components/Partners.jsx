@@ -233,16 +233,18 @@ export default function Partners() {
                           Done
                         </button>
                       </div>
-                      {productList.map((name) => (
-                        <label key={name} className="pms-option">
-                          <input
-                            type="checkbox"
-                            checked={form.products.includes(name)}
-                            onChange={() => toggleProduct(name)}
-                          />
-                          <span>{name}</span>
-                        </label>
-                      ))}
+                      <div className="pms-options-list">
+                        {productList.map((name) => (
+                          <label key={name} className="pms-option">
+                            <input
+                              type="checkbox"
+                              checked={form.products.includes(name)}
+                              onChange={() => toggleProduct(name)}
+                            />
+                            <span>{name}</span>
+                          </label>
+                        ))}
+                      </div>
                     </div>
                   )}
                   {form.products.length > 0 && (

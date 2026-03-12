@@ -1082,7 +1082,7 @@ button { cursor: pointer; font-family: inherit; }
   box-shadow: 0 24px 60px rgba(0,0,0,.2);
   max-height: min(70vh, 560px);
   overflow-y: auto;
-  padding: .75rem;
+  padding: 0;
   z-index: 20;
 }
 .pms-backdrop {
@@ -1102,10 +1102,11 @@ button { cursor: pointer; font-family: inherit; }
   position: sticky;
   top: 0;
   background: var(--card-bg);
-  padding-bottom: .6rem;
-  margin-bottom: .35rem;
+  padding: .9rem .9rem .7rem;
   border-bottom: 1px solid var(--border);
+  z-index: 1;
 }
+.pms-options-list { padding: .5rem .75rem .75rem; }
 .pms-close-btn {
   border: none;
   background: var(--primary);
