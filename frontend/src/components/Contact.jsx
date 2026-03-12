@@ -147,7 +147,7 @@ export default function Contact() {
                     value={form.countryCode}
                     onChange={handleChange}
                     style={{
-                      border: '1px solid #e0e0e0',
+                      border: '1px solid var(--border)',
                       borderRadius: '12px',
                       padding: '0 12px',
                       height: '48px',
@@ -155,7 +155,8 @@ export default function Contact() {
                       fontSize: '16px',
                       marginRight: '10px',
                       minWidth: '200px',
-                      background: '#fff',
+                      background: 'var(--bg)',
+                      color: 'var(--text)',
                       outline: 'none',
                     }}
                   >
@@ -172,13 +173,14 @@ export default function Contact() {
                     onChange={handleChange}
                     maxLength={getPhoneMaxLength(form.countryCode)}
                     style={{
-                      border: '1px solid #e0e0e0',
+                      border: '1px solid var(--border)',
                       borderRadius: '12px',
                       padding: '0 12px',
                       height: '48px',
                       fontSize: '16px',
                       flex: 1,
-                      background: '#fff',
+                      background: 'var(--bg)',
+                      color: 'var(--text)',
                       outline: 'none',
                     }}
                   />
