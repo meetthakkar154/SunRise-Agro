@@ -70,16 +70,10 @@ export default function Hero() {
 
   return (
     <section className="hero" id="home">
-      {/* Fallback image shown while video loads */}
       <div className={`hero-bg${videoLoaded ? ' hero-bg-fade' : ''}`}>
-        <img
-          src={HERO_FALLBACK}
-          alt="Rice paddy fields"
-          loading="eager"
-        />
+        <img src={HERO_FALLBACK} alt="Rice paddy fields" loading="eager" />
       </div>
 
-      {/* Background video */}
       <div className={`hero-video-wrap${videoLoaded ? ' hero-video-visible' : ''}`}>
         <video
           ref={videoRef}
@@ -126,7 +120,7 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          Sunrise Agro Process — Premium Sortex Rice Milling
+          Premium Sortex rice milling, wheat processing, and bulk agro supply from Khambhat, Gujarat.
         </motion.p>
 
         <motion.div
@@ -135,9 +129,9 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <span className="hero-badge">🌾 Sortex Cleaned</span>
-          <span className="hero-badge">✅ FSSAI Certified</span>
-          <span className="hero-badge">📦 35 Tons/Day Capacity</span>
+          <span className="hero-badge">Sortex Cleaned</span>
+          <span className="hero-badge">FSSAI Certified</span>
+          <span className="hero-badge">35 Tons/Day Capacity</span>
         </motion.div>
 
         <motion.div

@@ -10,6 +10,13 @@ const images = [
   'https://images.pexels.com/photos/2889440/pexels-photo-2889440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 ];
 
+const imageAlts = [
+  'Rice grain quality inspection at Sunrise Agro Process',
+  'Processed rice ready for wholesale packaging',
+  'Paddy fields representing farmer sourcing in Gujarat',
+  'Rice milling and agro processing workflow',
+];
+
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay } },
@@ -33,7 +40,7 @@ export default function About() {
           </motion.div>
           <motion.div className="about-images" variants={fadeUp(0.2)} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
             {images.map((src, i) => (
-              <img key={i} src={src} alt={`About ${i + 1}`} loading="lazy" />
+              <img key={i} src={src} alt={imageAlts[i]} loading="lazy" />
             ))}
           </motion.div>
         </div>

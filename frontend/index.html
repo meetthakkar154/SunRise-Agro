@@ -43,23 +43,91 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Sunrise Agro Process",
-        "url": "https://sunriseagroprocess.com/",
-        "image": "https://sunriseagroprocess.com/logo.webp",
-        "description": "Rice mill and agro processing company supplying premium Sortex rice, wheat, and bajri to wholesalers and bulk buyers.",
-        "telephone": "+91 8200101235",
-        "email": "sunriseagroprocess2021@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "36/1 Chhatardi, Khambhat-Dharmaj Highway",
-          "addressLocality": "Khambhat",
-          "addressRegion": "Gujarat",
-          "postalCode": "388640",
-          "addressCountry": "IN"
-        },
-        "areaServed": "India",
-        "priceRange": "$$"
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://sunriseagroprocess.com/#business",
+            "name": "Sunrise Agro Process",
+            "url": "https://sunriseagroprocess.com/",
+            "image": "https://sunriseagroprocess.com/logo.webp",
+            "description": "Rice mill and agro processing company supplying premium Sortex rice, wheat, and bajri to wholesalers and bulk buyers.",
+            "telephone": "+91 8200101235",
+            "email": "sunriseagroprocess2021@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "36/1 Chhatardi, Khambhat-Dharmaj Highway",
+              "addressLocality": "Khambhat",
+              "addressRegion": "Gujarat",
+              "postalCode": "388640",
+              "addressCountry": "IN"
+            },
+            "areaServed": "India",
+            "priceRange": "$$"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sunriseagroprocess.com/#website",
+            "url": "https://sunriseagroprocess.com/",
+            "name": "Sunrise Agro Process",
+            "publisher": {
+              "@id": "https://sunriseagroprocess.com/#business"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://sunriseagroprocess.com/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is Sortex processing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sortex is an advanced color sorting technology that removes discolored grains, stones, and foreign particles using optical sensors. Sunrise Agro Process uses QED Sortex technology to deliver premium quality, pure grains."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are your minimum order quantities?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sunrise Agro Process caters to wholesale and bulk orders. Rice is available in 30 kg and 50 kg PP bags, and specific order requirements can be discussed directly with the sales team."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What rice varieties do you produce?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The company produces Wadakolam, Wadakolam Old, Wadakolam Poniya, Wadakolam Vatla, Kali Muchh, Gujarat-13, Gujarat-17, Krishna Kamod, and Lachkari rice varieties, along with wheat and bajri products."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What packaging options are available?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Rice products are packed in durable 30 kg and 50 kg PP bags for wholesale distribution. Large buyers can discuss custom requirements directly with Sunrise Agro Process."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What milling technology do you use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sunrise Agro Process uses advanced Milltech milling machinery and QED Sortex color sorting technology, with a daily milling capacity of 35 tons."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where are you located?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sunrise Agro Process is located at 36/1 Chhatardi, Khambhat-Dharmaj Highway, Khambhat, District Anand, Gujarat 388640, India."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
   </head>

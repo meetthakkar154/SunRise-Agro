@@ -23,21 +23,23 @@ function App() {
     <>
       <GrainLoader />
       <Navbar />
-      <Hero />
-      <About />
-      <Founders />
-      <Products />
-      <Counters />
-      <Process />
-      <Gallery />
-      <Services />
-      <Quality />
-      <Infrastructure />
-      <Testimonials />
-      <FAQ />
-      <Partners />
-      <Financial />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Founders />
+        <Products />
+        <Counters />
+        <Process />
+        <Gallery />
+        <Services />
+        <Quality />
+        <Infrastructure />
+        <Testimonials />
+        <FAQ />
+        <Partners />
+        <Financial />
+        <Contact />
+      </main>
       <Footer />
       <WhatsAppFab />
     </>
