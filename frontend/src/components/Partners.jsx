@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import countryCodes from '../i18n/countryCodes.json';
 import phoneLengths from '../constants/phoneLengths';
 import { useTranslation } from 'react-i18next';
@@ -28,6 +28,7 @@ export default function Partners() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
+  const dropdownTriggerRef = useRef(null);
 
   useEffect(() => {
     const handler = (e) => {
@@ -65,9 +66,18 @@ export default function Partners() {
       document.body.style.position = previousBodyPosition;
       document.body.style.top = previousBodyTop;
       document.body.style.width = previousBodyWidth;
-      window.scrollTo(0, scrollY);
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollY);
+      });
     };
   }, [dropdownOpen]);
+
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+    requestAnimationFrame(() => {
+      dropdownTriggerRef.current?.focus({ preventScroll: true });
+    });
+  };
 
   const getPhoneMaxLength = (code) => phoneLengths[code] || 10;
 
@@ -242,7 +252,7 @@ export default function Partners() {
                 </div>
 
                 <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`}>
-                  <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                  <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)} ref={dropdownTriggerRef}>
                     <span>
                       {form.products.length > 0
                         ? `${form.products.length} ${t('partners.productsSelected')}`
@@ -250,12 +260,12 @@ export default function Partners() {
                     </span>
                     <FaChevronDown className="pms-chevron" />
                   </button>
-                  {dropdownOpen && <button type="button" className="pms-backdrop" aria-label="Close product selector" onClick={() => setDropdownOpen(false)} />}
+                  {dropdownOpen && <button type="button" className="pms-backdrop" aria-label="Close product selector" onClick={closeDropdown} />}
                   {dropdownOpen && (
                     <div className="product-multiselect-menu">
                       <div className="pms-mobile-header">
                         <strong>{t('partners.formProducts')}</strong>
-                        <button type="button" className="pms-close-btn" onClick={() => setDropdownOpen(false)}>
+                        <button type="button" className="pms-close-btn" onClick={closeDropdown}>
                           Done
                         </button>
                       </div>
