@@ -1082,6 +1082,8 @@ button { cursor: pointer; font-family: inherit; }
   box-shadow: 0 24px 60px rgba(0,0,0,.2);
   max-height: min(70vh, 560px);
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 0;
   z-index: 20;
 }

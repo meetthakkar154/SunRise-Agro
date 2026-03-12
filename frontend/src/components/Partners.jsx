@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import countryCodes from '../i18n/countryCodes.json';
 import phoneLengths from '../constants/phoneLengths';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +28,6 @@ export default function Partners() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
-  const dropdownTriggerRef = useRef(null);
 
   useEffect(() => {
     const handler = (e) => {
@@ -47,37 +46,19 @@ export default function Partners() {
   useEffect(() => {
     if (!dropdownOpen) return undefined;
 
-    const scrollY = window.scrollY;
     const previousBodyOverflow = document.body.style.overflow;
-    const previousBodyPosition = document.body.style.position;
-    const previousBodyTop = document.body.style.top;
-    const previousBodyWidth = document.body.style.width;
     const previousHtmlOverflow = document.documentElement.style.overflow;
 
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = '100%';
 
     return () => {
       document.documentElement.style.overflow = previousHtmlOverflow;
       document.body.style.overflow = previousBodyOverflow;
-      document.body.style.position = previousBodyPosition;
-      document.body.style.top = previousBodyTop;
-      document.body.style.width = previousBodyWidth;
-      requestAnimationFrame(() => {
-        window.scrollTo(0, scrollY);
-      });
     };
   }, [dropdownOpen]);
 
-  const closeDropdown = () => {
-    setDropdownOpen(false);
-    requestAnimationFrame(() => {
-      dropdownTriggerRef.current?.focus({ preventScroll: true });
-    });
-  };
+  const closeDropdown = () => setDropdownOpen(false);
 
   const getPhoneMaxLength = (code) => phoneLengths[code] || 10;
 
@@ -252,7 +233,7 @@ export default function Partners() {
                 </div>
 
                 <div className={`product-multiselect${dropdownOpen ? ' open' : ''}`}>
-                  <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)} ref={dropdownTriggerRef}>
+                  <button type="button" className="product-multiselect-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
                     <span>
                       {form.products.length > 0
                         ? `${form.products.length} ${t('partners.productsSelected')}`
