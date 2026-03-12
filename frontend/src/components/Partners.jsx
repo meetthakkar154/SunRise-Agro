@@ -43,6 +43,17 @@ export default function Partners() {
     return () => window.removeEventListener('requestQuote', handler);
   }, []);
 
+  useEffect(() => {
+    if (!dropdownOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [dropdownOpen]);
+
   const getPhoneMaxLength = (code) => phoneLengths[code] || 10;
 
   const handleChange = (e) => {
