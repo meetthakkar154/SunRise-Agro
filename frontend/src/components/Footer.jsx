@@ -19,7 +19,7 @@ export default function Footer() {
               Sunrise Agro Process
             </div>
             <p style={{ fontSize: '.9rem', opacity: .8, marginBottom: '1rem', lineHeight: 1.7 }}>
-              Premium Sortex rice milling company specializing in high-quality cleaned rice, wheat, and millet for bulk supply across India.
+              Sunrise Agro Process is a Khambhat, Gujarat based Sortex rice milling company specializing in premium rice, wheat, and bajri for wholesalers and bulk buyers across India.
             </p>
             {/* <a href="/catalog.pdf" download className="btn btn-outline" style={{ borderColor: 'var(--footer-text)', color: 'var(--footer-text)', fontSize: '.85rem', padding: '.5rem 1.2rem' }}>
               <FaDownload /> {t('catalog')}

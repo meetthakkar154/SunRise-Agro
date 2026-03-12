@@ -120,7 +120,7 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          Premium Sortex rice milling, wheat processing, and bulk agro supply from Khambhat, Gujarat.
+          Sunrise Agro Process is a premium Sortex rice mill in Khambhat, Gujarat supplying rice, wheat, and bajri to wholesale buyers across India.
         </motion.p>
 
         <motion.div
