@@ -62,7 +62,11 @@ async function sendNotification({ type, name, countryCode, phone, email, city, p
 }
 
 async function sendReviewMail({ name, review, rating }) {
-  if (!transporter) throw new Error('Mailer not initialised');
+  console.log('[MAILER] sendReviewMail called:', { name, review, rating });
+  if (!transporter) {
+    console.error('[MAILER] Mailer not initialised');
+    throw new Error('Mailer not initialised');
+  }
   const notifyEmail = (process.env.NOTIFY_EMAIL || process.env.SMTP_EMAIL || '').trim();
   const subject = `New Website Review from ${name}`;
   const html = `
@@ -83,12 +87,18 @@ async function sendReviewMail({ name, review, rating }) {
       </div>
     </div>
   `;
-  await transporter.sendMail({
-    from: `"SAP Website" <${(process.env.SMTP_EMAIL || '').trim()}>`,
-    to: notifyEmail,
-    subject,
-    html,
-  });
+  try {
+    await transporter.sendMail({
+      from: `"SAP Website" <${(process.env.SMTP_EMAIL || '').trim()}>`,
+      to: notifyEmail,
+      subject,
+      html,
+    });
+    console.log('[MAILER] Review email sent successfully');
+  } catch (err) {
+    console.error('[MAILER] Error sending review email:', err);
+    throw err;
+  }
 }
 
 module.exports = { initMailer, sendNotification, sendReviewMail };
