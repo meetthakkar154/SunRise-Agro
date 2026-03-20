@@ -18,7 +18,7 @@ app.set('trust proxy', 1); // Fix for express-rate-limit behind proxy (Vercel, e
 const port = process.env.PORT || 5000;
 
 app.use(helmet());
-app.use(cors()); // Allow all origins for debugging feedback POST issues
+app.use(cors({ origin: (process.env.CLIENT_URL || '*').trim() }));
 app.use(morgan('dev'));
 app.use(express.json({ limit: '1mb' }));
 
