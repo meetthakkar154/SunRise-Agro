@@ -9,10 +9,22 @@ export default function ReviewSection() {
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Here you would send the review/rating to your backend or API
+    try {
+      const response = await fetch('/api/review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, review, rating })
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert('Failed to send feedback. Please try again.');
+      }
+    } catch (err) {
+      alert('An error occurred. Please try again.');
+    }
   };
 
   return (
