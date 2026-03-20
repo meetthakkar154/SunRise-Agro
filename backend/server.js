@@ -14,6 +14,7 @@ const reviewRouter = require('./src/routes/review.routes');
 dotenv.config();
 
 const app = express();
+app.set('trust proxy', 1); // Fix for express-rate-limit behind proxy (Vercel, etc.)
 const port = process.env.PORT || 5000;
 
 app.use(helmet());
