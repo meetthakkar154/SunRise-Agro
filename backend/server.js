@@ -9,6 +9,7 @@ const { initMailer } = require('./src/services/mailer');
 const productsRouter = require('./src/routes/products.routes');
 const contactRouter = require('./src/routes/contact.routes');
 const partnerRouter = require('./src/routes/partners.routes');
+const reviewRouter = require('./src/routes/review.routes');
 
 dotenv.config();
 
@@ -36,6 +37,7 @@ app.get('/api/health', (_req, res) => {
 app.use('/api/products', productsRouter);
 app.use('/api/contact', contactRouter);
 app.use('/api/partners', partnerRouter);
+app.use('/api/review', reviewRouter);
 
 app.use((err, _req, res, _next) => {
   res.status(500).json({ message: err.message || 'Server error' });

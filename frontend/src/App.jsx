@@ -10,6 +10,7 @@ import Services from './components/Services';
 import Quality from './components/Quality';
 import Infrastructure from './components/Infrastructure';
 import Testimonials from './components/Testimonials';
+import ReviewSection from './components/ReviewSection';
 import FAQ from './components/FAQ';
 import Partners from './components/Partners';
 import Financial from './components/Financial';
@@ -35,6 +36,7 @@ function App() {
         <Quality />
         <Infrastructure />
         <Testimonials />
+        <ReviewSection />
         <FAQ />
         <Partners />
         <Financial />
