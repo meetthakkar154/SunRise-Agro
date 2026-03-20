@@ -12,7 +12,7 @@ export default function ReviewSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/review', {
+      const response = await fetch('https://sap-backend-two.vercel.app/api/review', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, review, rating })
