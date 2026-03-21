@@ -2,17 +2,49 @@ import { useState } from 'react';
 import { FaStar, FaUserCircle } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const API = import.meta.env.VITE_API_URL || '/api';
+
 export default function ReviewSection() {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [review, setReview] = useState('');
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Here you would send the review/rating to your backend or API
+    setError('');
+    setLoading(true);
+
+    try {
+      const res = await fetch(`${API}/review`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          review: review.trim(),
+          rating: rating || null,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        setError(data?.error || 'Failed to submit feedback. Please try again.');
+        return;
+      }
+
+      setSubmitted(true);
+      setName('');
+      setReview('');
+      setRating(0);
+      setHover(0);
+    } catch {
+      setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -77,9 +109,10 @@ export default function ReviewSection() {
                 required
                 maxLength={500}
               />
-              <button type="submit" className="review-submit review-submit-premium" disabled={review.length === 0 || name.trim().length === 0}>
-                Submit Review
+              <button type="submit" className="review-submit review-submit-premium" disabled={loading || review.length === 0 || name.trim().length === 0}>
+                {loading ? 'Submitting...' : 'Submit Review'}
               </button>
+              {error && <p style={{ color: '#d32f2f', fontWeight: 600 }}>{error}</p>}
             </motion.form>
           )}
         </AnimatePresence>
