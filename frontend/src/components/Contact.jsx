@@ -104,8 +104,16 @@ export default function Contact() {
               <span className="contact-icon"><FaPhoneAlt /></span>
               <div>
                 <strong>Phone / WhatsApp</strong>
-                <p>{t('contact.phone')}</p>
-                <p>{t('contact.phone2')}</p>
+                <p>
+                  <a href={`tel:${t('contact.phone').replace(/\s+/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    {t('contact.phone')}
+                  </a>
+                </p>
+                <p>
+                  <a href={`tel:${t('contact.phone2').replace(/\s+/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    {t('contact.phone2')}
+                  </a>
+                </p>
               </div>
             </div>
             <div className="contact-info-item">
