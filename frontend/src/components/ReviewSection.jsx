@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaStar, FaUserCircle } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API = import.meta.env.VITE_API_URL || '/api';
+const API = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '/api' : 'https://sap-backend-two.vercel.app/api');
 
 export default function ReviewSection() {
   const [rating, setRating] = useState(0);
