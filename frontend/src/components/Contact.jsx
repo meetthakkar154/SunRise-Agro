@@ -105,12 +105,12 @@ export default function Contact() {
               <div>
                 <strong>Phone / WhatsApp</strong>
                 <p>
-                  <a href={`tel:${t('contact.phone').replace(/\s+/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <a href={`tel:${t('contact.phone').replace(/\s+/g, '')}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
                     {t('contact.phone')}
                   </a>
                 </p>
                 <p>
-                  <a href={`tel:${t('contact.phone2').replace(/\s+/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <a href={`tel:${t('contact.phone2').replace(/\s+/g, '')}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
                     {t('contact.phone2')}
                   </a>
                 </p>
@@ -118,7 +118,7 @@ export default function Contact() {
             </div>
             <div className="contact-info-item">
               <span className="contact-icon"><FaEnvelope /></span>
-              <div><strong>Email</strong><p>{t('contact.email')}</p></div>
+              <div><strong>Email</strong><p><a href={`mailto:${t('contact.email')}`} style={{ color: 'inherit', textDecoration: 'underline' }}>{t('contact.email')}</a></p></div>
             </div>
             <div className="contact-info-item">
               <span className="contact-icon"><FaClock /></span>

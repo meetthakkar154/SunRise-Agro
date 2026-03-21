@@ -55,9 +55,9 @@ export default function Footer() {
             <h4>{t('footer.contactInfo')}</h4>
             <ul>
               <li>{t('contact.address')}</li>
-              <li>{t('contact.phone')}</li>
-              <li>{t('contact.phone2')}</li>
-              <li>{t('contact.email')}</li>
+              <li><a href={`tel:${t('contact.phone').replace(/\s+/g, '')}`} style={{ color: 'inherit', textDecoration: 'underline' }}>{t('contact.phone')}</a></li>
+              <li><a href={`tel:${t('contact.phone2').replace(/\s+/g, '')}`} style={{ color: 'inherit', textDecoration: 'underline' }}>{t('contact.phone2')}</a></li>
+              <li><a href={`mailto:${t('contact.email')}`} style={{ color: 'inherit', textDecoration: 'underline' }}>{t('contact.email')}</a></li>
               <li>{t('contact.hours')}</li>
               <li><strong>{t('contact.gstLabel')}:</strong> {t('contact.gst')}</li>
             </ul>
