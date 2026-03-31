@@ -1,3 +1,12 @@
+/* Footer dark mode: all text green */
+[data-theme='dark'] .footer,
+[data-theme='dark'] .footer *,
+[data-theme='dark'] .footer h4,
+[data-theme='dark'] .footer a,
+[data-theme='dark'] .footer ul li,
+[data-theme='dark'] .footer-bottom {
+  color: var(--primary) !important;
+}
 /* Dark mode overrides for review form */
 [data-theme='dark'] .review-form {
   background: #232526;
