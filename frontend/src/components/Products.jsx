@@ -8,7 +8,7 @@ const API = import.meta.env.VITE_API_URL || '/api';
 
 const RICE_IMG = 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
 const WHEAT_IMG = 'https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
-const BAJRI_IMG = '/sap bajri.webp';
+const BAJRI_IMG = '/sap_bajri.webp';
 
 const fallback = [
   // Rice (standard milled)

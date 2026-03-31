@@ -36,7 +36,7 @@ const products = [
   { id: 'bhaliya-wheat', name: 'Bhaliya Wheat', category: 'Wheat', description: 'Gujarat\'s own Bhaliya wheat variety, ideal for chapati and rotla.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'Gujarat Origin', 'Chapati Wheat', 'Pure & Natural'], image: 'https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
 
   // Pearl Millet
-  { id: 'green-gold-bajri', name: 'Green Gold Bajri', category: 'White Pearl', description: 'Nutritious Green Gold Pearl Millet (Bajri) processed with care. Traditional Gujarati staple grain.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'High Nutrition', 'Traditional Grain', 'Pure & Natural'], image: 'https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 'green-gold-bajri', name: 'Green Gold Bajri', category: 'White Pearl', description: 'Nutritious Green Gold Pearl Millet (Bajri) processed with care. Traditional Gujarati staple grain.', qualityGrade: 'AA', packaging: '30kg, 50kg PP bags', features: ['Sortex Cleaned', 'High Nutrition', 'Traditional Grain', 'Pure & Natural'], image: '/sap_bajri.webp' },
 ];
 
 module.exports = { products };
