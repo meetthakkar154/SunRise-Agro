@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { FaWhatsapp } from 'react-icons/fa';
-// import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaDownload } from 'react-icons/fa';
+import { FaWhatsapp, FaDownload } from 'react-icons/fa';
 
 const sections = ['home', 'about', 'products', 'process', 'infrastructure', 'services', 'quality', 'contact'];
 
@@ -21,9 +20,28 @@ export default function Footer() {
             <p style={{ fontSize: '.9rem', opacity: .8, marginBottom: '1rem', lineHeight: 1.7 }}>
               Sunrise Agro Process is a Khambhat, Gujarat based Sortex rice milling company specializing in premium rice, wheat, and bajri for wholesalers and bulk buyers across India.
             </p>
-            {/* <a href="/catalog.pdf" download className="btn btn-outline" style={{ borderColor: 'var(--footer-text)', color: 'var(--footer-text)', fontSize: '.85rem', padding: '.5rem 1.2rem' }}>
-              <FaDownload /> {t('catalog')}
-            </a> */}
+            <a
+              href="/SAP_Catalog.pdf"
+              download="sap_catalog.pdf"
+              className="btn btn-download-catalog"
+              style={{
+                background: 'var(--footer-text)',
+                color: 'var(--footer-bg)',
+                fontWeight: 600,
+                fontSize: '.95rem',
+                padding: '.65rem 1.5rem',
+                borderRadius: '2rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '.6rem',
+                marginTop: '0.7rem',
+                border: 'none',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.07)'
+              }}
+            >
+              <FaDownload style={{ fontSize: '1.1em' }} />
+              {t('footer.downloadCatalog', 'Download Catalog')}
+            </a>
           </div>
 
           {/* Quick Links */}
