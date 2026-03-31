@@ -1,3 +1,32 @@
+/* Dark mode overrides for review form */
+[data-theme='dark'] .review-form {
+  background: #232526;
+  border-color: #232526;
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.12);
+}
+[data-theme='dark'] .review-name,
+[data-theme='dark'] .review-textarea {
+  background: #181a1b;
+  color: #f3f3f3;
+  border-color: #33393d;
+}
+[data-theme='dark'] .review-name:focus,
+[data-theme='dark'] .review-textarea:focus {
+  background: #232526;
+}
+[data-theme='dark'] .review-label {
+  color: #b6e388;
+}
+[data-theme='dark'] .star {
+  color: #44474a;
+}
+[data-theme='dark'] .star.active {
+  color: #ffd700;
+}
+[data-theme='dark'] .review-submit {
+  background: #b6e388;
+  color: #232526;
+}
 .gradient-text {
   color: var(--primary-dark);
 }
