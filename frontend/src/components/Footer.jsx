@@ -22,7 +22,7 @@ export default function Footer() {
             </p>
             <a
               href="/SAP_Catalog.pdf"
-              download="sap_catalog.pdf"
+              download="SAP_Catalog.pdf"
               className="btn btn-download-catalog"
               style={{
                 background: 'var(--footer-text)',
